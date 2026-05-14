@@ -1,4 +1,4 @@
-import { Megaphone, AlertTriangle, CheckCircle2, ArrowDownToLine, ArrowUpFromLine, Layers, Clock } from 'lucide-react';
+import { Megaphone, AlertTriangle, CheckCircle2, ArrowDownToLine, ArrowUpFromLine, Layers, Clock, HelpCircle } from 'lucide-react';
 import type { AtisWarning, AuroraAtis, ExpectedConfig } from '@shared/types';
 
 interface Props {
@@ -6,9 +6,10 @@ interface Props {
   warnings: AtisWarning[];
   auroraConnected: boolean;
   expectedConfig: ExpectedConfig | null;
+  onAuroraHelp?: () => void;
 }
 
-export function AtisStrip({ atis, warnings, auroraConnected, expectedConfig }: Props) {
+export function AtisStrip({ atis, warnings, auroraConnected, expectedConfig, onAuroraHelp }: Props) {
   const runwayWarns = warnings.filter((w) => w.kind === 'runway');
   const tflWarn = warnings.find((w) => w.kind === 'tfl');
   const sessionWarns = warnings.filter((w) => w.kind === 'session');
@@ -21,6 +22,15 @@ export function AtisStrip({ atis, warnings, auroraConnected, expectedConfig }: P
         <span className="text-ink-300">
           {auroraConnected ? 'Aucun ATIS publié pour cette station.' : "En attente d'Aurora…"}
         </span>
+        {!auroraConnected && onAuroraHelp && (
+          <button
+            onClick={onAuroraHelp}
+            className="flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-md bg-amber-500/10 border border-amber-400/25 hover:bg-amber-500/20 text-amber-200 transition-colors"
+          >
+            <HelpCircle className="w-3 h-3" />
+            Aide configuration
+          </button>
+        )}
         {expectedConfig && (
           <span className="ml-auto flex items-center gap-2 text-xs text-ink-400">
             <Clock className="w-3 h-3" />

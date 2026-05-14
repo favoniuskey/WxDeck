@@ -8,6 +8,7 @@ const defaults: UserSettings = {
   weatherIntervalMs: 60000,
   acceptedDisclaimer: false,
   aliziaTutorialSeen: false,
+  auroraGuideDismissed: false,
   theme: 'mica'
 };
 

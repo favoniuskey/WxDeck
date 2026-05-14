@@ -1,0 +1,138 @@
+import { useEffect, useRef, useState } from 'react';
+import { MonitorCog, Wind, Gauge, ChevronDown } from 'lucide-react';
+import type { AliziaMode } from '@shared/types';
+
+interface Props {
+  ventActive: boolean;
+  pressionActive: boolean;
+  onToggle: (mode: AliziaMode) => void;
+}
+
+export function AliziaMenu({ ventActive, pressionActive, onToggle }: Props) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const anyActive = ventActive || pressionActive;
+  const activeCount = (ventActive ? 1 : 0) + (pressionActive ? 1 : 0);
+
+  useEffect(() => {
+    if (!open) return;
+    const onClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('mousedown', onClick);
+    window.addEventListener('keydown', onKey);
+    return () => {
+      window.removeEventListener('mousedown', onClick);
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className={`relative flex items-center gap-1.5 rounded-lg transition-all duration-200 ${
+          anyActive
+            ? 'alizia-button-active px-2.5 py-1.5 bg-gradient-to-r from-red-500/30 via-red-500/20 to-red-600/25 text-red-100'
+            : 'px-2.5 py-1.5 hover:bg-white/[0.08] text-ink-200'
+        }`}
+        title="ALIZIA — boitier Pulsonic répliqué (Vent + Pression)"
+      >
+        <MonitorCog className={`w-4 h-4 ${anyActive ? 'drop-shadow-[0_0_6px_rgba(255,80,50,0.8)]' : ''}`} />
+        <span className="text-[10px] font-bold tracking-[0.18em] uppercase">ALIZIA</span>
+        {anyActive && (
+          <span className="text-[9px] tabular-nums opacity-80 font-semibold">{activeCount}</span>
+        )}
+        <ChevronDown className={`w-3 h-3 opacity-60 transition-transform ${open ? 'rotate-180' : ''}`} />
+        {anyActive && (
+          <span className="w-1.5 h-1.5 rounded-full bg-red-400 alizia-led shadow-[0_0_8px_rgba(255,60,30,0.9)]" />
+        )}
+      </button>
+
+      {open && (
+        <div className="absolute right-0 top-full mt-2 w-[340px] glass-strong rounded-2xl border border-white/10 shadow-2xl p-3 z-50 animate-fade-in">
+          <div className="px-2 py-2 mb-1">
+            <div className="text-[11px] font-bold tracking-[0.18em] uppercase text-ink-100 flex items-center gap-2">
+              <MonitorCog className="w-3.5 h-3.5" />
+              Boitier ALIZIA 0330
+            </div>
+            <div className="text-[11px] text-ink-400 mt-1 leading-relaxed">
+              Réplique fidèle du système Pulsonic utilisé par les contrôleurs réels. Fenêtre flottante déplaçable partout sur l'écran, toujours au-dessus si épinglée.
+            </div>
+          </div>
+
+          <div className="space-y-1.5">
+            <MenuItem
+              icon={<Wind className="w-4 h-4 text-sky-300" />}
+              title="ALIZIA Vent"
+              description="Vitesse + direction du vent (MIN / MOY / MAX) et QFU actif"
+              active={ventActive}
+              onClick={() => {
+                onToggle('vent');
+                setOpen(false);
+              }}
+            />
+            <MenuItem
+              icon={<Gauge className="w-4 h-4 text-amber-300" />}
+              title="ALIZIA Pression"
+              description="QNH et QFE calculé avec l'élévation du terrain"
+              active={pressionActive}
+              onClick={() => {
+                onToggle('pression');
+                setOpen(false);
+              }}
+            />
+          </div>
+
+          <div className="mt-2 pt-2 border-t border-white/[0.06] px-2 text-[10px] text-ink-400 leading-relaxed">
+            Tu peux ouvrir les deux boitiers en même temps. Chacun a son bouton 📌 pour rester par-dessus tes autres applis (Aurora, navigateur…).
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function MenuItem({
+  icon,
+  title,
+  description,
+  active,
+  onClick
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`w-full text-left rounded-xl border transition-all px-3 py-2.5 flex items-start gap-3 ${
+        active
+          ? 'bg-red-500/10 border-red-400/40 hover:bg-red-500/15'
+          : 'bg-white/[0.03] border-white/[0.06] hover:bg-white/[0.06] hover:border-white/[0.12]'
+      }`}
+    >
+      <div className="mt-0.5 flex-shrink-0">{icon}</div>
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center justify-between gap-2">
+          <span className="text-[12px] font-bold tracking-wide text-ink-100">{title}</span>
+          {active ? (
+            <span className="flex items-center gap-1 text-[9px] uppercase tracking-wider font-bold text-red-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-400 alizia-led" />
+              Ouvert · cliquer pour fermer
+            </span>
+          ) : (
+            <span className="text-[9px] uppercase tracking-wider font-bold text-ink-400">Ouvrir</span>
+          )}
+        </div>
+        <div className="text-[10px] text-ink-400 mt-0.5 leading-relaxed">{description}</div>
+      </div>
+    </button>
+  );
+}

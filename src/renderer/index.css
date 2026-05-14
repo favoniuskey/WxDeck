@@ -96,6 +96,18 @@ body {
     inset 0 1px 1px rgba(0, 0, 0, 0.8),
     inset 0 -1px 0 rgba(255, 255, 255, 0.02);
 }
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 5px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 4px;
+  color: #e2e8f0;
+}
 .alizia-sticker {
   background: linear-gradient(180deg, #f4f4f4 0%, #d8d8d8 100%);
   color: #1a1a1a;

@@ -101,6 +101,7 @@ export interface UserSettings {
   weatherIntervalMs: number;
   acceptedDisclaimer: boolean;
   aliziaTutorialSeen: boolean;
+  auroraGuideDismissed: boolean;
   theme: 'mica' | 'acrylic' | 'flat';
 }
 
