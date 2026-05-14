@@ -39,7 +39,7 @@ export function AliziaMenu({ ventActive, pressionActive, onToggle }: Props) {
             ? 'alizia-button-active px-2.5 py-1.5 bg-gradient-to-r from-red-500/30 via-red-500/20 to-red-600/25 text-red-100'
             : 'px-2.5 py-1.5 hover:bg-white/[0.08] text-ink-200'
         }`}
-        title="ALIZIA — boitier Pulsonic répliqué (Vent + Pression)"
+        title="ALIZIA - boitier Pulsonic répliqué (Vent + Pression)"
       >
         <MonitorCog className={`w-4 h-4 ${anyActive ? 'drop-shadow-[0_0_6px_rgba(255,80,50,0.8)]' : ''}`} />
         <span className="text-[10px] font-bold tracking-[0.18em] uppercase">ALIZIA</span>
@@ -53,22 +53,22 @@ export function AliziaMenu({ ventActive, pressionActive, onToggle }: Props) {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-[340px] glass-strong rounded-2xl border border-white/10 shadow-2xl p-3 z-50 animate-fade-in">
-          <div className="px-2 py-2 mb-1">
+        <div className="absolute right-0 top-full mt-2 w-[380px] glass-strong rounded-2xl border border-white/10 shadow-2xl p-3 z-50 animate-fade-in">
+          <div className="px-2 py-2 mb-1.5">
             <div className="text-[11px] font-bold tracking-[0.18em] uppercase text-ink-100 flex items-center gap-2">
               <MonitorCog className="w-3.5 h-3.5" />
               Boitier ALIZIA 0330
             </div>
             <div className="text-[11px] text-ink-400 mt-1 leading-relaxed">
-              Réplique fidèle du système Pulsonic utilisé par les contrôleurs réels. Fenêtre flottante déplaçable partout sur l'écran, toujours au-dessus si épinglée.
+              Réplique fidèle du système Pulsonic utilisé par les contrôleurs réels. Fenêtre flottante, déplaçable partout sur l'écran, peut rester toujours au-dessus de tes autres applications.
             </div>
           </div>
 
-          <div className="space-y-1.5">
+          <div className="space-y-2">
             <MenuItem
-              icon={<Wind className="w-4 h-4 text-sky-300" />}
+              icon={<Wind className="w-5 h-5 text-sky-300" />}
               title="ALIZIA Vent"
-              description="Vitesse + direction du vent (MIN / MOY / MAX) et QFU actif"
+              description="Vitesse et direction du vent (MIN / MOY / MAX) avec affichage du QFU actif"
               active={ventActive}
               onClick={() => {
                 onToggle('vent');
@@ -76,7 +76,7 @@ export function AliziaMenu({ ventActive, pressionActive, onToggle }: Props) {
               }}
             />
             <MenuItem
-              icon={<Gauge className="w-4 h-4 text-amber-300" />}
+              icon={<Gauge className="w-5 h-5 text-amber-300" />}
               title="ALIZIA Pression"
               description="QNH et QFE calculé avec l'élévation du terrain"
               active={pressionActive}
@@ -87,8 +87,8 @@ export function AliziaMenu({ ventActive, pressionActive, onToggle }: Props) {
             />
           </div>
 
-          <div className="mt-2 pt-2 border-t border-white/[0.06] px-2 text-[10px] text-ink-400 leading-relaxed">
-            Tu peux ouvrir les deux boitiers en même temps. Chacun a son bouton 📌 pour rester par-dessus tes autres applis (Aurora, navigateur…).
+          <div className="mt-3 pt-2 border-t border-white/[0.06] px-2 text-[10px] text-ink-400 leading-relaxed">
+            Tu peux ouvrir les deux boitiers en même temps. Chacun a son propre bouton « toujours au-dessus » dans sa barre de titre, pour rester visible par-dessus Aurora, navigateur, etc.
           </div>
         </div>
       )}
@@ -112,26 +112,41 @@ function MenuItem({
   return (
     <button
       onClick={onClick}
-      className={`w-full text-left rounded-xl border transition-all px-3 py-2.5 flex items-start gap-3 ${
+      className={`w-full text-left rounded-xl border transition-all p-3 flex items-center gap-3 group ${
         active
-          ? 'bg-red-500/10 border-red-400/40 hover:bg-red-500/15'
-          : 'bg-white/[0.03] border-white/[0.06] hover:bg-white/[0.06] hover:border-white/[0.12]'
+          ? 'bg-red-500/[0.08] border-red-400/30 hover:bg-red-500/[0.12] hover:border-red-400/45'
+          : 'bg-white/[0.025] border-white/[0.07] hover:bg-white/[0.06] hover:border-white/[0.14]'
       }`}
     >
-      <div className="mt-0.5 flex-shrink-0">{icon}</div>
+      <div
+        className={`w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0 border ${
+          active ? 'bg-red-500/10 border-red-400/30' : 'bg-white/[0.04] border-white/[0.08]'
+        }`}
+      >
+        {icon}
+      </div>
+
       <div className="flex-1 min-w-0">
-        <div className="flex items-center justify-between gap-2">
-          <span className="text-[12px] font-bold tracking-wide text-ink-100">{title}</span>
-          {active ? (
-            <span className="flex items-center gap-1 text-[9px] uppercase tracking-wider font-bold text-red-300">
+        <div className="flex items-center gap-2 mb-0.5">
+          <span className="text-[13px] font-bold tracking-wide text-ink-100">{title}</span>
+          {active && (
+            <span className="flex items-center gap-1 text-[9px] uppercase tracking-[0.15em] font-bold px-1.5 py-0.5 rounded-md bg-red-500/15 border border-red-400/30 text-red-200">
               <span className="w-1.5 h-1.5 rounded-full bg-red-400 alizia-led" />
-              Ouvert · cliquer pour fermer
+              En cours
             </span>
-          ) : (
-            <span className="text-[9px] uppercase tracking-wider font-bold text-ink-400">Ouvrir</span>
           )}
         </div>
-        <div className="text-[10px] text-ink-400 mt-0.5 leading-relaxed">{description}</div>
+        <div className="text-[11px] text-ink-400 leading-relaxed">{description}</div>
+      </div>
+
+      <div
+        className={`flex-shrink-0 px-3 py-2 rounded-lg text-[11px] font-bold tracking-[0.15em] uppercase transition-colors ${
+          active
+            ? 'bg-red-500/20 border border-red-400/40 text-red-100 group-hover:bg-red-500/30'
+            : 'bg-accent/15 border border-accent/30 text-accent group-hover:bg-accent/25 group-hover:text-white'
+        }`}
+      >
+        {active ? 'Fermer' : 'Ouvrir'}
       </div>
     </button>
   );
