@@ -135,12 +135,10 @@ export function RunwayDiagram({ airport, atis, expectedConfig, metar }: Props) {
   const hasAtis = !!atis;
 
   const windDir = metar?.wind.direction;
-  const windSpd = metar?.wind.speed ?? 0;
   const windArrowRot = windDir === 'VRB' || windDir == null ? null : (windDir as number);
-  const needleStrength = Math.min(1, Math.max(0.35, windSpd / 20));
 
-  const needleLength = COMPASS_R - 22;
-  const tailLength = COMPASS_R - 70;
+  const needleLength = COMPASS_R - 18;
+  const tailLength = COMPASS_R - 60;
 
   return (
     <div className="relative" style={{ width: SIZE, height: SIZE }}>
@@ -186,20 +184,19 @@ export function RunwayDiagram({ airport, atis, expectedConfig, metar }: Props) {
             <stop offset="100%" stopColor="#1e293b" />
           </radialGradient>
           <linearGradient id="needlePointer" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#fef3c7" stopOpacity="0.95" />
-            <stop offset="25%" stopColor="#fcd34d" stopOpacity="1" />
-            <stop offset="65%" stopColor="#f97316" stopOpacity="0.95" />
-            <stop offset="100%" stopColor="#dc2626" stopOpacity="0.85" />
+            <stop offset="0%" stopColor="#fff7ed" stopOpacity="1" />
+            <stop offset="15%" stopColor="#fcd34d" stopOpacity="1" />
+            <stop offset="55%" stopColor="#f97316" stopOpacity="1" />
+            <stop offset="100%" stopColor="#ea580c" stopOpacity="1" />
           </linearGradient>
-          <linearGradient id="needlePointerEdge" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="rgba(0,0,0,0.4)" />
-            <stop offset="50%" stopColor="rgba(255,255,255,0.25)" />
-            <stop offset="100%" stopColor="rgba(0,0,0,0.4)" />
+          <linearGradient id="needleHighlight" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="rgba(255,255,255,0.85)" />
+            <stop offset="80%" stopColor="rgba(255,255,255,0)" />
           </linearGradient>
           <linearGradient id="needleTail" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="rgba(120, 130, 150, 0.65)" />
-            <stop offset="50%" stopColor="rgba(100, 110, 130, 0.5)" />
-            <stop offset="100%" stopColor="rgba(75, 85, 100, 0.35)" />
+            <stop offset="0%" stopColor="rgba(160, 170, 190, 0.85)" />
+            <stop offset="50%" stopColor="rgba(120, 130, 150, 0.7)" />
+            <stop offset="100%" stopColor="rgba(90, 100, 120, 0.55)" />
           </linearGradient>
           <linearGradient id="runwayAsphalt" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="rgba(50, 60, 75, 0.85)" />
@@ -209,9 +206,11 @@ export function RunwayDiagram({ airport, atis, expectedConfig, metar }: Props) {
             <stop offset="100%" stopColor="rgba(50, 60, 75, 0.85)" />
           </linearGradient>
           <filter id="needleGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2" result="blur" />
+            <feGaussianBlur stdDeviation="4" result="blur1" />
+            <feGaussianBlur stdDeviation="1.5" in="SourceGraphic" result="blur2" />
             <feMerge>
-              <feMergeNode in="blur" />
+              <feMergeNode in="blur1" />
+              <feMergeNode in="blur2" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
@@ -344,49 +343,50 @@ export function RunwayDiagram({ airport, atis, expectedConfig, metar }: Props) {
               transformOrigin: `${CENTER}px ${CENTER}px`,
               transition: 'transform 1100ms cubic-bezier(0.34, 1.56, 0.64, 1)'
             }}
-            filter="url(#needleGlow)"
-            opacity={needleStrength}
           >
             <path
-              d={`M ${CENTER} ${CENTER - needleLength}
-                  L ${CENTER - 9} ${CENTER - 26}
-                  L ${CENTER - 4} ${CENTER}
-                  L ${CENTER + 4} ${CENTER}
-                  L ${CENTER + 9} ${CENTER - 26}
-                  Z`}
-              fill="url(#needlePointer)"
-              stroke="rgba(0,0,0,0.55)"
-              strokeWidth="0.6"
-            />
-            <path
-              d={`M ${CENTER} ${CENTER - needleLength + 4}
-                  L ${CENTER - 3} ${CENTER - 28}
-                  L ${CENTER - 1.5} ${CENTER - 4}
-                  L ${CENTER + 1.5} ${CENTER - 4}
-                  L ${CENTER + 3} ${CENTER - 28}
-                  Z`}
-              fill="rgba(255,255,255,0.45)"
-            />
-            <path
               d={`M ${CENTER} ${CENTER + tailLength}
-                  L ${CENTER - 6} ${CENTER + 22}
-                  L ${CENTER - 3} ${CENTER}
-                  L ${CENTER + 3} ${CENTER}
-                  L ${CENTER + 6} ${CENTER + 22}
+                  L ${CENTER - 9} ${CENTER + 26}
+                  L ${CENTER - 5} ${CENTER + 2}
+                  L ${CENTER + 5} ${CENTER + 2}
+                  L ${CENTER + 9} ${CENTER + 26}
                   Z`}
               fill="url(#needleTail)"
-              stroke="rgba(0,0,0,0.4)"
-              strokeWidth="0.5"
+              stroke="rgba(0,0,0,0.5)"
+              strokeWidth="0.8"
             />
             <ellipse
               cx={CENTER}
-              cy={CENTER + tailLength + 4}
-              rx="5"
-              ry="3"
-              fill="rgba(60, 70, 90, 0.7)"
-              stroke="rgba(0,0,0,0.4)"
-              strokeWidth="0.5"
+              cy={CENTER + tailLength + 6}
+              rx="8"
+              ry="5"
+              fill="rgba(60, 70, 90, 0.85)"
+              stroke="rgba(0,0,0,0.5)"
+              strokeWidth="0.8"
             />
+            <g filter="url(#needleGlow)">
+              <path
+                d={`M ${CENTER} ${CENTER - needleLength}
+                    L ${CENTER - 14} ${CENTER - 36}
+                    L ${CENTER - 6} ${CENTER - 4}
+                    L ${CENTER + 6} ${CENTER - 4}
+                    L ${CENTER + 14} ${CENTER - 36}
+                    Z`}
+                fill="url(#needlePointer)"
+                stroke="#7c2d12"
+                strokeWidth="1"
+                strokeLinejoin="round"
+              />
+              <path
+                d={`M ${CENTER} ${CENTER - needleLength + 4}
+                    L ${CENTER - 5} ${CENTER - 36}
+                    L ${CENTER - 2} ${CENTER - 8}
+                    L ${CENTER + 2} ${CENTER - 8}
+                    L ${CENTER + 5} ${CENTER - 36}
+                    Z`}
+                fill="url(#needleHighlight)"
+              />
+            </g>
           </g>
         )}
 
