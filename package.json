@@ -1,7 +1,7 @@
 {
   "name": "wxdeck",
   "productName": "WxDeck",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Professional weather and ATIS dashboard for IVAO virtual ATCs",
   "author": {
     "name": "Keywan D (FavoniusKey)",
