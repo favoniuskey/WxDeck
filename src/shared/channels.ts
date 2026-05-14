@@ -18,5 +18,10 @@ export const IPC = {
   ALIZIA_GET_ALWAYS_ON_TOP: 'wxdeck:alizia-get-on-top',
   AURORA_DIAGNOSE: 'wxdeck:aurora-diagnose',
   AURORA_AUTO_FIX: 'wxdeck:aurora-auto-fix',
-  AURORA_PICK_PATH: 'wxdeck:aurora-pick-path'
+  AURORA_PICK_PATH: 'wxdeck:aurora-pick-path',
+  DOCK_TOGGLE: 'wxdeck:dock-toggle',
+  DOCK_IS_OPEN: 'wxdeck:dock-is-open',
+  DOCK_STATE_CHANGED: 'wxdeck:dock-state-changed',
+  DOCK_SET_ALWAYS_ON_TOP: 'wxdeck:dock-set-on-top',
+  DOCK_GET_ALWAYS_ON_TOP: 'wxdeck:dock-get-on-top'
 } as const;

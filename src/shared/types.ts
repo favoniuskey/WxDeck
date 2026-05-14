@@ -162,7 +162,8 @@ export interface AtisWarning {
 }
 
 export type AliziaMode = 'vent' | 'pression';
-export type WindowKind = 'main' | 'alizia-vent' | 'alizia-pression';
+export type DockKind = 'wind' | 'atis' | 'raw';
+export type WindowKind = 'main' | 'alizia-vent' | 'alizia-pression' | 'dock-wind' | 'dock-atis' | 'dock-raw';
 
 export interface WxDeckApi {
   windowKind: WindowKind;
@@ -186,6 +187,11 @@ export interface WxDeckApi {
   auroraDiagnose: () => Promise<AuroraDiagnostic>;
   auroraAutoFix: (scope: 'active' | 'all') => Promise<AuroraFixResult>;
   auroraPickInstallPath: () => Promise<string | null>;
+  dockToggle: (kind: DockKind) => Promise<boolean>;
+  dockIsOpen: (kind: DockKind) => Promise<boolean>;
+  dockSetAlwaysOnTop: (kind: DockKind, onTop: boolean) => Promise<boolean>;
+  dockGetAlwaysOnTop: (kind: DockKind) => Promise<boolean>;
+  onDockStateChange: (cb: (kind: DockKind, open: boolean) => void) => () => void;
 }
 
 export type UpdateEvent =

@@ -1,10 +1,18 @@
 import { contextBridge, ipcRenderer } from 'electron';
 import { IPC } from '@shared/channels';
-import type { UserSettings, LiveState, UpdateEvent, WxDeckApi, WindowKind, AliziaMode } from '@shared/types';
+import type { UserSettings, LiveState, UpdateEvent, WxDeckApi, WindowKind, AliziaMode, DockKind } from '@shared/types';
 
 const hash = typeof window !== 'undefined' ? window.location.hash : '';
-const windowKind: WindowKind =
-  hash === '#alizia-vent' ? 'alizia-vent' : hash === '#alizia-pression' ? 'alizia-pression' : 'main';
+const windowKind: WindowKind = (() => {
+  switch (hash) {
+    case '#alizia-vent': return 'alizia-vent';
+    case '#alizia-pression': return 'alizia-pression';
+    case '#dock-wind': return 'dock-wind';
+    case '#dock-atis': return 'dock-atis';
+    case '#dock-raw': return 'dock-raw';
+    default: return 'main';
+  }
+})();
 
 const api: WxDeckApi = {
   windowKind,
@@ -40,7 +48,17 @@ const api: WxDeckApi = {
   },
   auroraDiagnose: () => ipcRenderer.invoke(IPC.AURORA_DIAGNOSE),
   auroraAutoFix: (scope: 'active' | 'all') => ipcRenderer.invoke(IPC.AURORA_AUTO_FIX, scope),
-  auroraPickInstallPath: () => ipcRenderer.invoke(IPC.AURORA_PICK_PATH)
+  auroraPickInstallPath: () => ipcRenderer.invoke(IPC.AURORA_PICK_PATH),
+  dockToggle: (kind: DockKind) => ipcRenderer.invoke(IPC.DOCK_TOGGLE, kind),
+  dockIsOpen: (kind: DockKind) => ipcRenderer.invoke(IPC.DOCK_IS_OPEN, kind),
+  dockSetAlwaysOnTop: (kind: DockKind, onTop: boolean) =>
+    ipcRenderer.invoke(IPC.DOCK_SET_ALWAYS_ON_TOP, kind, onTop),
+  dockGetAlwaysOnTop: (kind: DockKind) => ipcRenderer.invoke(IPC.DOCK_GET_ALWAYS_ON_TOP, kind),
+  onDockStateChange: (cb: (kind: DockKind, open: boolean) => void) => {
+    const listener = (_: unknown, kind: DockKind, open: boolean) => cb(kind, open);
+    ipcRenderer.on(IPC.DOCK_STATE_CHANGED, listener);
+    return () => ipcRenderer.off(IPC.DOCK_STATE_CHANGED, listener);
+  }
 };
 
 contextBridge.exposeInMainWorld('wxdeck', api);

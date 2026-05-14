@@ -1,5 +1,6 @@
-import { Plane, Radio, WifiOff } from 'lucide-react';
+import { Radio, WifiOff } from 'lucide-react';
 import type { AtcSession, MetarReport } from '@shared/types';
+import { TowerIcon } from './TowerIcon';
 
 interface Props {
   icao: string;
@@ -39,7 +40,7 @@ export function OpsBar({ icao, airportName, metar, session, whazzupOk }: Props) 
     <div className="glass-strong border-b border-white/10 px-5 py-3 flex items-center gap-5">
       <div className="flex items-center gap-3 min-w-[200px]">
         <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent/40 to-accent/10 border border-accent/40 flex items-center justify-center shrink-0">
-          <Plane className="w-5 h-5 text-accent" strokeWidth={2.2} />
+          <TowerIcon className="w-6 h-6 text-accent" strokeWidth={1.7} />
         </div>
         <div>
           <div className="text-2xl font-bold tracking-tight tabular-nums">{icao || '----'}</div>

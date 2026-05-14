@@ -4,7 +4,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { IPC } from '@shared/channels';
-import type { AliziaMode } from '@shared/types';
+import type { AliziaMode, DockKind } from '@shared/types';
 import { getSettings, patchSettings } from './settings';
 import { initUpdater, checkForUpdates, installUpdateNow } from './updater';
 import { startOrchestrator, getLiveState, applyAuroraEndpoint, refreshTimers } from './orchestrator';
@@ -22,6 +22,21 @@ let mainWindow: BrowserWindow | null = null;
 const aliziaWindows: Record<AliziaMode, BrowserWindow | null> = {
   vent: null,
   pression: null
+};
+const dockWindows: Record<DockKind, BrowserWindow | null> = {
+  wind: null,
+  atis: null,
+  raw: null
+};
+const DOCK_SIZES: Record<DockKind, { width: number; height: number }> = {
+  wind: { width: 740, height: 100 },
+  atis: { width: 740, height: 100 },
+  raw: { width: 880, height: 130 }
+};
+const DOCK_TITLES: Record<DockKind, string> = {
+  wind: 'Composantes vent - WxDeck',
+  atis: 'ATIS - WxDeck',
+  raw: 'METAR / TAF - WxDeck'
 };
 
 function preloadPath(): string {
@@ -175,6 +190,83 @@ function broadcastAliziaState(mode: AliziaMode, open: boolean): void {
   }
 }
 
+function broadcastDockState(kind: DockKind, open: boolean): void {
+  for (const w of BrowserWindow.getAllWindows()) {
+    if (!w.isDestroyed()) w.webContents.send(IPC.DOCK_STATE_CHANGED, kind, open);
+  }
+}
+
+async function createDockWindow(kind: DockKind): Promise<void> {
+  const existing = dockWindows[kind];
+  if (existing && !existing.isDestroyed()) {
+    existing.show();
+    existing.focus();
+    return;
+  }
+
+  const size = DOCK_SIZES[kind];
+  const icon = resolveIcon();
+
+  let x: number | undefined;
+  let y: number | undefined;
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    const b = mainWindow.getBounds();
+    x = Math.round(b.x + b.width / 2 - size.width / 2);
+    const offset = kind === 'wind' ? -60 : kind === 'atis' ? 60 : 180;
+    y = Math.round(b.y + b.height / 2 - size.height / 2 + offset);
+  }
+
+  const win = new BrowserWindow({
+    width: size.width,
+    height: size.height,
+    minWidth: size.width,
+    minHeight: size.height,
+    maxWidth: size.width,
+    maxHeight: size.height,
+    x,
+    y,
+    show: false,
+    frame: false,
+    resizable: false,
+    transparent: true,
+    backgroundColor: '#00000000',
+    alwaysOnTop: true,
+    skipTaskbar: false,
+    icon,
+    title: DOCK_TITLES[kind],
+    webPreferences: {
+      preload: preloadPath(),
+      contextIsolation: true,
+      sandbox: false,
+      nodeIntegration: false
+    }
+  });
+
+  win.setMenuBarVisibility(false);
+  win.setAlwaysOnTop(true, 'screen-saver');
+  win.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
+
+  dockWindows[kind] = win;
+
+  win.once('ready-to-show', () => {
+    win.show();
+    win.setAlwaysOnTop(true, 'screen-saver');
+  });
+
+  const entry = rendererEntry();
+  const hashFragment = `#dock-${kind}`;
+  if (entry.url) {
+    await win.loadURL(entry.url + hashFragment);
+  } else if (entry.file) {
+    await win.loadFile(entry.file, { hash: hashFragment.slice(1) });
+  }
+
+  win.on('closed', () => {
+    dockWindows[kind] = null;
+    broadcastDockState(kind, false);
+  });
+}
+
 function registerIpc(): void {
   ipcMain.handle(IPC.GET_SETTINGS, () => getSettings());
   ipcMain.handle(IPC.SET_SETTINGS, (_e, patch) => {
@@ -241,6 +333,32 @@ function registerIpc(): void {
     if (!path) return { attempted: 0, succeeded: [], failed: [], blockedByRunning: false };
     return autoFixThirdParty(path, scope);
   });
+  ipcMain.handle(IPC.DOCK_TOGGLE, async (_e, kind: DockKind) => {
+    const existing = dockWindows[kind];
+    if (existing && !existing.isDestroyed()) {
+      existing.close();
+      return false;
+    }
+    await createDockWindow(kind);
+    broadcastDockState(kind, true);
+    return true;
+  });
+  ipcMain.handle(IPC.DOCK_IS_OPEN, (_e, kind: DockKind) => {
+    const w = dockWindows[kind];
+    return !!(w && !w.isDestroyed());
+  });
+  ipcMain.handle(IPC.DOCK_SET_ALWAYS_ON_TOP, (_e, kind: DockKind, onTop: boolean) => {
+    const w = dockWindows[kind];
+    if (!w || w.isDestroyed()) return false;
+    w.setAlwaysOnTop(onTop, onTop ? 'screen-saver' : 'normal');
+    return w.isAlwaysOnTop();
+  });
+  ipcMain.handle(IPC.DOCK_GET_ALWAYS_ON_TOP, (_e, kind: DockKind) => {
+    const w = dockWindows[kind];
+    if (!w || w.isDestroyed()) return false;
+    return w.isAlwaysOnTop();
+  });
+
   ipcMain.handle(IPC.AURORA_PICK_PATH, async (event) => {
     const win = BrowserWindow.fromWebContents(event.sender);
     const res = await dialog.showOpenDialog(win ?? undefined as any, {
