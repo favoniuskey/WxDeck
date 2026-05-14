@@ -133,7 +133,8 @@ export interface AtisWarning {
   actual?: string;
 }
 
-export type WindowKind = 'main' | 'alizia';
+export type AliziaMode = 'vent' | 'pression';
+export type WindowKind = 'main' | 'alizia-vent' | 'alizia-pression';
 
 export interface WxDeckApi {
   windowKind: WindowKind;
@@ -149,10 +150,11 @@ export interface WxDeckApi {
   windowMinimize: () => void;
   windowMaximizeToggle: () => void;
   windowClose: () => void;
-  aliziaToggle: () => Promise<boolean>;
-  aliziaIsOpen: () => Promise<boolean>;
-  aliziaSetAlwaysOnTop: (onTop: boolean) => Promise<void>;
-  onAliziaStateChange: (cb: (open: boolean) => void) => () => void;
+  aliziaToggle: (mode: AliziaMode) => Promise<boolean>;
+  aliziaIsOpen: (mode: AliziaMode) => Promise<boolean>;
+  aliziaSetAlwaysOnTop: (mode: AliziaMode, onTop: boolean) => Promise<boolean>;
+  aliziaGetAlwaysOnTop: (mode: AliziaMode) => Promise<boolean>;
+  onAliziaStateChange: (cb: (mode: AliziaMode, open: boolean) => void) => () => void;
 }
 
 export type UpdateEvent =

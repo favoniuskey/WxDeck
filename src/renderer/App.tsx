@@ -10,15 +10,21 @@ import { api } from './lib/api';
 export function App() {
   const { settings, reload } = useSettings();
   const [showSettings, setShowSettings] = useState(false);
-  const [aliziaOpen, setAliziaOpen] = useState(false);
+  const [ventOpen, setVentOpen] = useState(false);
+  const [pressionOpen, setPressionOpen] = useState(false);
 
   useEffect(() => {
     let mounted = true;
-    api.aliziaIsOpen().then((open) => {
-      if (mounted) setAliziaOpen(open);
+    Promise.all([api.aliziaIsOpen('vent'), api.aliziaIsOpen('pression')]).then(([v, p]) => {
+      if (mounted) {
+        setVentOpen(v);
+        setPressionOpen(p);
+      }
     });
-    const off = api.onAliziaStateChange((open) => {
-      if (mounted) setAliziaOpen(open);
+    const off = api.onAliziaStateChange((mode, open) => {
+      if (!mounted) return;
+      if (mode === 'vent') setVentOpen(open);
+      else setPressionOpen(open);
     });
     return () => {
       mounted = false;
@@ -46,8 +52,9 @@ export function App() {
       <TitleBar
         onOpenSettings={() => setShowSettings(true)}
         onCheckUpdates={() => api.triggerUpdateCheck()}
-        onToggleAlizia={() => api.aliziaToggle()}
-        aliziaActive={aliziaOpen}
+        onToggleAlizia={(mode) => api.aliziaToggle(mode)}
+        ventActive={ventOpen}
+        pressionActive={pressionOpen}
       />
       <Dashboard />
       {showSettings && <Settings onClose={() => setShowSettings(false)} />}

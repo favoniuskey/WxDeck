@@ -1,9 +1,10 @@
 import { contextBridge, ipcRenderer } from 'electron';
 import { IPC } from '@shared/channels';
-import type { UserSettings, LiveState, UpdateEvent, WxDeckApi, WindowKind } from '@shared/types';
+import type { UserSettings, LiveState, UpdateEvent, WxDeckApi, WindowKind, AliziaMode } from '@shared/types';
 
 const hash = typeof window !== 'undefined' ? window.location.hash : '';
-const windowKind: WindowKind = hash === '#alizia' ? 'alizia' : 'main';
+const windowKind: WindowKind =
+  hash === '#alizia-vent' ? 'alizia-vent' : hash === '#alizia-pression' ? 'alizia-pression' : 'main';
 
 const api: WxDeckApi = {
   windowKind,
@@ -27,11 +28,13 @@ const api: WxDeckApi = {
   windowMinimize: () => ipcRenderer.send(IPC.WINDOW_MIN),
   windowMaximizeToggle: () => ipcRenderer.send(IPC.WINDOW_MAX),
   windowClose: () => ipcRenderer.send(IPC.WINDOW_CLOSE),
-  aliziaToggle: () => ipcRenderer.invoke(IPC.ALIZIA_TOGGLE),
-  aliziaIsOpen: () => ipcRenderer.invoke(IPC.ALIZIA_IS_OPEN),
-  aliziaSetAlwaysOnTop: (onTop: boolean) => ipcRenderer.invoke(IPC.ALIZIA_SET_ALWAYS_ON_TOP, onTop),
-  onAliziaStateChange: (cb: (open: boolean) => void) => {
-    const listener = (_: unknown, open: boolean) => cb(open);
+  aliziaToggle: (mode: AliziaMode) => ipcRenderer.invoke(IPC.ALIZIA_TOGGLE, mode),
+  aliziaIsOpen: (mode: AliziaMode) => ipcRenderer.invoke(IPC.ALIZIA_IS_OPEN, mode),
+  aliziaSetAlwaysOnTop: (mode: AliziaMode, onTop: boolean) =>
+    ipcRenderer.invoke(IPC.ALIZIA_SET_ALWAYS_ON_TOP, mode, onTop),
+  aliziaGetAlwaysOnTop: (mode: AliziaMode) => ipcRenderer.invoke(IPC.ALIZIA_GET_ALWAYS_ON_TOP, mode),
+  onAliziaStateChange: (cb: (mode: AliziaMode, open: boolean) => void) => {
+    const listener = (_: unknown, mode: AliziaMode, open: boolean) => cb(mode, open);
     ipcRenderer.on(IPC.ALIZIA_STATE_CHANGED, listener);
     return () => ipcRenderer.off(IPC.ALIZIA_STATE_CHANGED, listener);
   }

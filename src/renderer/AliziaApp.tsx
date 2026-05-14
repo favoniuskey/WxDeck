@@ -1,3 +1,4 @@
+import type { AliziaMode } from '@shared/types';
 import { useLiveData } from './hooks/useLiveData';
 import { useSettings } from './hooks/useSettings';
 import { AliziaUnit } from './components/AliziaUnit';
@@ -10,11 +11,13 @@ export function AliziaApp() {
 
   if (!settings) return <div className="min-h-screen bg-transparent" />;
 
+  const mode: AliziaMode = api.windowKind === 'alizia-pression' ? 'pression' : 'vent';
   const showTutorial = !settings.aliziaTutorialSeen;
 
   return (
     <div className="min-h-screen bg-transparent flex items-center justify-center p-2 select-none">
       <AliziaUnit
+        mode={mode}
         metar={state?.metar ?? null}
         airport={state?.airport ?? null}
         expectedConfig={state?.expectedConfig ?? null}

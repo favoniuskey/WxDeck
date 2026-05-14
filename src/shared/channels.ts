@@ -14,5 +14,6 @@ export const IPC = {
   ALIZIA_TOGGLE: 'wxdeck:alizia-toggle',
   ALIZIA_STATE_CHANGED: 'wxdeck:alizia-state-changed',
   ALIZIA_IS_OPEN: 'wxdeck:alizia-is-open',
-  ALIZIA_SET_ALWAYS_ON_TOP: 'wxdeck:alizia-set-on-top'
+  ALIZIA_SET_ALWAYS_ON_TOP: 'wxdeck:alizia-set-on-top',
+  ALIZIA_GET_ALWAYS_ON_TOP: 'wxdeck:alizia-get-on-top'
 } as const;

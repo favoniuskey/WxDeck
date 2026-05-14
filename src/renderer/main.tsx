@@ -5,9 +5,10 @@ import { AliziaApp } from './AliziaApp';
 import './index.css';
 
 const kind = window.wxdeck?.windowKind ?? 'main';
+const isAlizia = kind === 'alizia-vent' || kind === 'alizia-pression';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {kind === 'alizia' ? <AliziaApp /> : <App />}
+    {isAlizia ? <AliziaApp /> : <App />}
   </StrictMode>
 );

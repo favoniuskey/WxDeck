@@ -4,6 +4,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { IPC } from '@shared/channels';
+import type { AliziaMode } from '@shared/types';
 import { getSettings, patchSettings } from './settings';
 import { initUpdater, checkForUpdates, installUpdateNow } from './updater';
 import { startOrchestrator, getLiveState, applyAuroraEndpoint, refreshTimers } from './orchestrator';
@@ -17,7 +18,10 @@ if (!app.requestSingleInstanceLock()) {
 }
 
 let mainWindow: BrowserWindow | null = null;
-let aliziaWindow: BrowserWindow | null = null;
+const aliziaWindows: Record<AliziaMode, BrowserWindow | null> = {
+  vent: null,
+  pression: null
+};
 
 function preloadPath(): string {
   return join(__dirname, '..', 'preload', 'index.cjs');
@@ -91,21 +95,37 @@ async function createMainWindow(): Promise<void> {
   });
 }
 
-async function createAliziaWindow(): Promise<void> {
-  if (aliziaWindow && !aliziaWindow.isDestroyed()) {
-    aliziaWindow.show();
-    aliziaWindow.focus();
+const ALIZIA_SIZE = { width: 460, height: 520 };
+
+function defaultPositionFor(mode: AliziaMode): { x: number; y: number } | undefined {
+  if (!mainWindow || mainWindow.isDestroyed()) return undefined;
+  const bounds = mainWindow.getBounds();
+  const cx = Math.round(bounds.x + bounds.width / 2 - ALIZIA_SIZE.width / 2);
+  const cy = Math.round(bounds.y + bounds.height / 2 - ALIZIA_SIZE.height / 2);
+  const offset = mode === 'pression' ? 40 : -40;
+  return { x: cx + offset, y: cy + offset };
+}
+
+async function createAliziaWindow(mode: AliziaMode): Promise<void> {
+  const existing = aliziaWindows[mode];
+  if (existing && !existing.isDestroyed()) {
+    existing.show();
+    existing.focus();
     return;
   }
 
   const icon = resolveIcon();
-  aliziaWindow = new BrowserWindow({
-    width: 460,
-    height: 520,
-    minWidth: 460,
-    minHeight: 520,
-    maxWidth: 460,
-    maxHeight: 520,
+  const pos = defaultPositionFor(mode);
+
+  const win = new BrowserWindow({
+    width: ALIZIA_SIZE.width,
+    height: ALIZIA_SIZE.height,
+    minWidth: ALIZIA_SIZE.width,
+    minHeight: ALIZIA_SIZE.height,
+    maxWidth: ALIZIA_SIZE.width,
+    maxHeight: ALIZIA_SIZE.height,
+    x: pos?.x,
+    y: pos?.y,
     show: false,
     frame: false,
     resizable: false,
@@ -114,7 +134,7 @@ async function createAliziaWindow(): Promise<void> {
     alwaysOnTop: true,
     skipTaskbar: false,
     icon,
-    title: 'ALIZIA 0330 - WxDeck',
+    title: mode === 'vent' ? 'ALIZIA 0330 Vent - WxDeck' : 'ALIZIA 0330 Pression - WxDeck',
     webPreferences: {
       preload: preloadPath(),
       contextIsolation: true,
@@ -123,28 +143,34 @@ async function createAliziaWindow(): Promise<void> {
     }
   });
 
-  aliziaWindow.setMenuBarVisibility(false);
+  win.setMenuBarVisibility(false);
+  win.setAlwaysOnTop(true, 'screen-saver');
+  win.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
 
-  aliziaWindow.once('ready-to-show', () => {
-    aliziaWindow?.show();
+  aliziaWindows[mode] = win;
+
+  win.once('ready-to-show', () => {
+    win.show();
+    win.setAlwaysOnTop(true, 'screen-saver');
   });
 
   const entry = rendererEntry();
+  const hashFragment = mode === 'vent' ? '#alizia-vent' : '#alizia-pression';
   if (entry.url) {
-    await aliziaWindow.loadURL(entry.url + '#alizia');
+    await win.loadURL(entry.url + hashFragment);
   } else if (entry.file) {
-    await aliziaWindow.loadFile(entry.file, { hash: 'alizia' });
+    await win.loadFile(entry.file, { hash: hashFragment.slice(1) });
   }
 
-  aliziaWindow.on('closed', () => {
-    aliziaWindow = null;
-    broadcastAliziaState(false);
+  win.on('closed', () => {
+    aliziaWindows[mode] = null;
+    broadcastAliziaState(mode, false);
   });
 }
 
-function broadcastAliziaState(open: boolean): void {
+function broadcastAliziaState(mode: AliziaMode, open: boolean): void {
   for (const w of BrowserWindow.getAllWindows()) {
-    if (!w.isDestroyed()) w.webContents.send(IPC.ALIZIA_STATE_CHANGED, open);
+    if (!w.isDestroyed()) w.webContents.send(IPC.ALIZIA_STATE_CHANGED, mode, open);
   }
 }
 
@@ -178,22 +204,30 @@ function registerIpc(): void {
     win?.close();
   });
 
-  ipcMain.handle(IPC.ALIZIA_TOGGLE, async () => {
-    if (aliziaWindow && !aliziaWindow.isDestroyed()) {
-      aliziaWindow.close();
+  ipcMain.handle(IPC.ALIZIA_TOGGLE, async (_e, mode: AliziaMode) => {
+    const existing = aliziaWindows[mode];
+    if (existing && !existing.isDestroyed()) {
+      existing.close();
       return false;
     }
-    await createAliziaWindow();
-    broadcastAliziaState(true);
+    await createAliziaWindow(mode);
+    broadcastAliziaState(mode, true);
     return true;
   });
-  ipcMain.handle(IPC.ALIZIA_IS_OPEN, () => {
-    return !!(aliziaWindow && !aliziaWindow.isDestroyed());
+  ipcMain.handle(IPC.ALIZIA_IS_OPEN, (_e, mode: AliziaMode) => {
+    const w = aliziaWindows[mode];
+    return !!(w && !w.isDestroyed());
   });
-  ipcMain.handle(IPC.ALIZIA_SET_ALWAYS_ON_TOP, (_e, onTop: boolean) => {
-    if (aliziaWindow && !aliziaWindow.isDestroyed()) {
-      aliziaWindow.setAlwaysOnTop(onTop);
-    }
+  ipcMain.handle(IPC.ALIZIA_SET_ALWAYS_ON_TOP, (_e, mode: AliziaMode, onTop: boolean) => {
+    const w = aliziaWindows[mode];
+    if (!w || w.isDestroyed()) return false;
+    w.setAlwaysOnTop(onTop, onTop ? 'screen-saver' : 'normal');
+    return w.isAlwaysOnTop();
+  });
+  ipcMain.handle(IPC.ALIZIA_GET_ALWAYS_ON_TOP, (_e, mode: AliziaMode) => {
+    const w = aliziaWindows[mode];
+    if (!w || w.isDestroyed()) return false;
+    return w.isAlwaysOnTop();
   });
 }
 

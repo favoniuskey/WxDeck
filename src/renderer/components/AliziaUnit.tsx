@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { X, ArrowUpLeft, ArrowLeft, ArrowRight, CornerDownLeft, GripHorizontal, Minus, Pin, PinOff } from 'lucide-react';
-import type { AirportProfile, ExpectedConfig, MetarReport } from '@shared/types';
+import type { AirportProfile, AliziaMode, ExpectedConfig, MetarReport } from '@shared/types';
 import { extractWind, extractPressure, activeQfuFromConfig } from '../lib/alizia';
 import { api } from '../lib/api';
 
 interface Props {
+  mode: AliziaMode;
   metar: MetarReport | null;
   airport: AirportProfile | null;
   expectedConfig: ExpectedConfig | null;
@@ -12,11 +13,18 @@ interface Props {
   onMinimize: () => void;
 }
 
-type Mode = 'vent' | 'pression';
-
-export function AliziaUnit({ metar, airport, expectedConfig, onClose, onMinimize }: Props) {
-  const [mode, setMode] = useState<Mode>('vent');
+export function AliziaUnit({ mode, metar, airport, expectedConfig, onClose, onMinimize }: Props) {
   const [pinned, setPinned] = useState(true);
+
+  useEffect(() => {
+    let mounted = true;
+    api.aliziaGetAlwaysOnTop(mode).then((v) => {
+      if (mounted) setPinned(v);
+    });
+    return () => {
+      mounted = false;
+    };
+  }, [mode]);
 
   const wind = extractWind(metar);
   const pressure = extractPressure(metar, airport);
@@ -25,9 +33,11 @@ export function AliziaUnit({ metar, airport, expectedConfig, onClose, onMinimize
 
   const togglePin = async () => {
     const next = !pinned;
-    setPinned(next);
-    await api.aliziaSetAlwaysOnTop(next);
+    const actual = await api.aliziaSetAlwaysOnTop(mode, next);
+    setPinned(actual);
   };
+
+  const modeLabel = mode === 'vent' ? 'VENT' : 'PRESSION';
 
   return (
     <div className="alizia-bezel rounded-lg p-2.5 w-full max-w-[440px]">
@@ -38,6 +48,8 @@ export function AliziaUnit({ metar, airport, expectedConfig, onClose, onMinimize
         >
           <GripHorizontal className="w-3.5 h-3.5" />
           <span>ALIZIA 0330</span>
+          <span className="text-zinc-600">·</span>
+          <span className="text-zinc-400">{modeLabel}</span>
           {stationIcao && <span className="text-zinc-600">· {stationIcao}</span>}
         </div>
         <div className="flex items-center gap-1" style={{ WebkitAppRegion: 'no-drag' } as React.CSSProperties}>
@@ -87,32 +99,16 @@ export function AliziaUnit({ metar, airport, expectedConfig, onClose, onMinimize
 
       <div className="mt-2.5 flex items-center justify-between gap-3 px-1" style={{ WebkitAppRegion: 'no-drag' } as React.CSSProperties}>
         <div className="flex items-center gap-1.5">
-          <DeviceButton icon={<ArrowUpLeft className="w-3.5 h-3.5" />} onClick={() => setMode((m) => (m === 'vent' ? 'pression' : 'vent'))} />
-          <DeviceButton icon={<ArrowLeft className="w-3.5 h-3.5" />} onClick={() => setMode('vent')} />
-          <DeviceButton icon={<ArrowRight className="w-3.5 h-3.5" />} onClick={() => setMode('pression')} />
-          <DeviceButton icon={<CornerDownLeft className="w-3.5 h-3.5" />} onClick={() => setMode((m) => (m === 'vent' ? 'pression' : 'vent'))} />
+          <DeviceButton icon={<ArrowUpLeft className="w-3.5 h-3.5" />} />
+          <DeviceButton icon={<ArrowLeft className="w-3.5 h-3.5" />} />
+          <DeviceButton icon={<ArrowRight className="w-3.5 h-3.5" />} />
+          <DeviceButton icon={<CornerDownLeft className="w-3.5 h-3.5" />} />
         </div>
 
         <div className="flex items-center gap-3">
           <div className="w-2.5 h-2.5 rounded-full bg-black/80 border border-zinc-700/40 shadow-inner" />
           <PulsonicLogo />
         </div>
-      </div>
-
-      <div className="mt-2 flex items-center justify-center gap-1 text-[10px] text-zinc-500" style={{ WebkitAppRegion: 'no-drag' } as React.CSSProperties}>
-        <button
-          onClick={() => setMode('vent')}
-          className={`px-2 py-0.5 rounded transition-colors ${mode === 'vent' ? 'bg-white/[0.08] text-zinc-200' : 'hover:bg-white/[0.04]'}`}
-        >
-          Vent
-        </button>
-        <span className="opacity-30">·</span>
-        <button
-          onClick={() => setMode('pression')}
-          className={`px-2 py-0.5 rounded transition-colors ${mode === 'pression' ? 'bg-white/[0.08] text-zinc-200' : 'hover:bg-white/[0.04]'}`}
-        >
-          Pression
-        </button>
       </div>
     </div>
   );
@@ -222,7 +218,7 @@ function DigitCell({ char }: { char: string | null }) {
   );
 }
 
-function QfuMiniDisplay({ qfu, mode }: { qfu: string | null; mode: Mode }) {
+function QfuMiniDisplay({ qfu, mode }: { qfu: string | null; mode: AliziaMode }) {
   const text = mode === 'pression' ? 'R018' : qfu ?? '----';
   return (
     <div className="alizia-screen rounded-sm border border-black px-1.5 py-1">
@@ -240,18 +236,17 @@ function QfuMiniDisplay({ qfu, mode }: { qfu: string | null; mode: Mode }) {
   );
 }
 
-function DeviceButton({ icon, onClick }: { icon: React.ReactNode; onClick: () => void }) {
+function DeviceButton({ icon }: { icon: React.ReactNode }) {
   return (
-    <button
-      onClick={onClick}
-      className="w-9 h-7 rounded-sm border border-zinc-700 hover:border-zinc-600 flex items-center justify-center text-zinc-300 transition-colors"
+    <div
+      className="w-9 h-7 rounded-sm border border-zinc-700 flex items-center justify-center text-zinc-500"
       style={{
         background: 'linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 50%, #0f0f0f 100%)',
         boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), inset 0 -1px 0 rgba(0,0,0,0.6)'
       }}
     >
       {icon}
-    </button>
+    </div>
   );
 }
 
