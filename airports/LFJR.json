@@ -1,0 +1,66 @@
+{
+  "icao": "LFJR",
+  "name": "Angers Marcé",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "08",
+      "heading": 80,
+      "lengthFt": 5906,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "26",
+      "heading": 260,
+      "lengthFt": 5906,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 08",
+      "arrRunways": [
+        "08"
+      ],
+      "depRunways": [
+        "08"
+      ],
+      "windFrom": 350,
+      "windTo": 170,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 26",
+      "arrRunways": [
+        "26"
+      ],
+      "depRunways": [
+        "26"
+      ],
+      "windFrom": 170,
+      "windTo": 350,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "icao": "LFLP",
+  "name": "Annecy Meythet",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "04",
+      "heading": 39,
+      "lengthFt": 5348,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "22",
+      "heading": 219,
+      "lengthFt": 5348,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 04",
+      "arrRunways": [
+        "04"
+      ],
+      "depRunways": [
+        "04"
+      ],
+      "windFrom": 309,
+      "windTo": 129,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 22",
+      "arrRunways": [
+        "22"
+      ],
+      "depRunways": [
+        "22"
+      ],
+      "windFrom": 129,
+      "windTo": 309,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

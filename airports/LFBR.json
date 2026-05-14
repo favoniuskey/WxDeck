@@ -1,0 +1,66 @@
+{
+  "icao": "LFBR",
+  "name": "Muret Lherm",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "12",
+      "heading": 117,
+      "lengthFt": 3609,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "30",
+      "heading": 297,
+      "lengthFt": 3609,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 12",
+      "arrRunways": [
+        "12"
+      ],
+      "depRunways": [
+        "12"
+      ],
+      "windFrom": 27,
+      "windTo": 207,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 30",
+      "arrRunways": [
+        "30"
+      ],
+      "depRunways": [
+        "30"
+      ],
+      "windFrom": 207,
+      "windTo": 27,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

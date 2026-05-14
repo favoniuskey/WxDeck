@@ -1,0 +1,89 @@
+{
+  "icao": "FMEE",
+  "name": "La Réunion Roland Garros",
+  "region": "dom-tom",
+  "transitionAltitude": 12000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 130
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 140
+    }
+  ],
+  "runways": [
+    {
+      "id": "12",
+      "heading": 124,
+      "lengthFt": 10499,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "30",
+      "heading": 304,
+      "lengthFt": 10499,
+      "surface": "asphalt",
+      "ils": false
+    },
+    {
+      "id": "14",
+      "heading": 144,
+      "lengthFt": 5577,
+      "surface": "asphalt",
+      "ils": false
+    },
+    {
+      "id": "32",
+      "heading": 324,
+      "lengthFt": 5577,
+      "surface": "asphalt",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face 12/14 (alizés SE)",
+      "arrRunways": [
+        "12"
+      ],
+      "depRunways": [
+        "12",
+        "14"
+      ],
+      "windFrom": 30,
+      "windTo": 220,
+      "priority": 1,
+      "conditions": [],
+      "notes": "14 (secondaire) aviation légère / entraînement."
+    },
+    {
+      "name": "Face 30/32",
+      "arrRunways": [
+        "30"
+      ],
+      "depRunways": [
+        "30",
+        "32"
+      ],
+      "windFrom": 220,
+      "windTo": 30,
+      "minSpeed": 5,
+      "priority": 2,
+      "conditions": [],
+      "notes": "Rare hors cyclone. Pas d'ILS face 30."
+    }
+  ],
+  "specialNotes": [
+    "Doublet parallèle décalé.",
+    "Cisaillements possibles (relief Piton de la Fournaise).",
+    "ILS CAT I uniquement RWY 12."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "icao": "LFLL",
+  "name": "Lyon Saint-Exupéry",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "17L",
+      "heading": 175,
+      "lengthFt": 13123,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "35R",
+      "heading": 355,
+      "lengthFt": 13123,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "17R",
+      "heading": 175,
+      "lengthFt": 8858,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "35L",
+      "heading": 355,
+      "lengthFt": 8858,
+      "surface": "asphalt",
+      "ils": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face nord 35 (préférentielle)",
+      "arrRunways": [
+        "35R"
+      ],
+      "depRunways": [
+        "35L"
+      ],
+      "windFrom": 260,
+      "windTo": 80,
+      "priority": 1,
+      "conditions": [],
+      "notes": "35R CAT III pour ARR, 35L pour DEP. Approches indépendantes (espacement ~600 m)."
+    },
+    {
+      "name": "Face sud 17",
+      "arrRunways": [
+        "17L"
+      ],
+      "depRunways": [
+        "17R"
+      ],
+      "windFrom": 80,
+      "windTo": 260,
+      "priority": 2,
+      "conditions": [],
+      "notes": "17L CAT III pour ARR, 17R pour DEP."
+    }
+  ],
+  "specialNotes": [
+    "Pistes parallèles indépendantes (espacement ~600 m).",
+    "Préférence QFU 35 (bruit communes nord).",
+    "Hub cargo nuit - usage 35L/17R privilégié."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

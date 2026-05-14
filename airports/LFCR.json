@@ -1,0 +1,66 @@
+{
+  "icao": "LFCR",
+  "name": "Rodez Aveyron",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "13",
+      "heading": 130,
+      "lengthFt": 6693,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "31",
+      "heading": 310,
+      "lengthFt": 6693,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 13",
+      "arrRunways": [
+        "13"
+      ],
+      "depRunways": [
+        "13"
+      ],
+      "windFrom": 40,
+      "windTo": 220,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 31",
+      "arrRunways": [
+        "31"
+      ],
+      "depRunways": [
+        "31"
+      ],
+      "windFrom": 220,
+      "windTo": 40,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

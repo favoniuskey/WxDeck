@@ -1,0 +1,74 @@
+{
+  "icao": "LFLB",
+  "name": "Chambéry Aix-les-Bains",
+  "region": "metro",
+  "transitionAltitude": 6500,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 80
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 90
+    }
+  ],
+  "runways": [
+    {
+      "id": "18",
+      "heading": 182,
+      "lengthFt": 6824,
+      "surface": "asphalt",
+      "ils": false
+    },
+    {
+      "id": "36",
+      "heading": 2,
+      "lengthFt": 6824,
+      "surface": "asphalt",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 18 (atterrissages préférentiels)",
+      "arrRunways": [
+        "18"
+      ],
+      "depRunways": [
+        "36"
+      ],
+      "windFrom": 90,
+      "windTo": 270,
+      "priority": 1,
+      "conditions": [],
+      "notes": "Procédure montagne : ATT 18 sud, DEC 36 nord vers le lac."
+    },
+    {
+      "name": "QFU 36 (vent fort du nord)",
+      "arrRunways": [
+        "36"
+      ],
+      "depRunways": [
+        "18"
+      ],
+      "windFrom": 270,
+      "windTo": 90,
+      "minSpeed": 10,
+      "priority": 2,
+      "conditions": [],
+      "notes": "Inversion seulement si vent du nord > 10 kt."
+    }
+  ],
+  "specialNotes": [
+    "Aéroport de montagne - approches RNP AR.",
+    "TA non standard (6500 ft).",
+    "Pas d'ILS - LOC/DME, VOR/DME, RNP.",
+    "Charter ski hivernal intense."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

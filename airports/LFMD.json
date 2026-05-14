@@ -1,0 +1,67 @@
+{
+  "icao": "LFMD",
+  "name": "Cannes Mandelieu",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "04",
+      "heading": 43,
+      "lengthFt": 2493,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "22",
+      "heading": 223,
+      "lengthFt": 2493,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "17",
+      "heading": 170,
+      "lengthFt": 5052,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "35",
+      "heading": 350,
+      "lengthFt": 5052,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "17L",
+      "heading": 170,
+      "lengthFt": 1804,
+      "surface": "grass",
+      "ils": false
+    },
+    {
+      "id": "35R",
+      "heading": 350,
+      "lengthFt": 1804,
+      "surface": "grass",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

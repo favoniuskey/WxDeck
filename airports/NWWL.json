@@ -1,0 +1,66 @@
+{
+  "icao": "NWWL",
+  "name": "Lifou Ouanaham",
+  "region": "dom-tom",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "12",
+      "heading": 135,
+      "lengthFt": 3609,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "30",
+      "heading": 315,
+      "lengthFt": 3609,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 12",
+      "arrRunways": [
+        "12"
+      ],
+      "depRunways": [
+        "12"
+      ],
+      "windFrom": 45,
+      "windTo": 225,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 30",
+      "arrRunways": [
+        "30"
+      ],
+      "depRunways": [
+        "30"
+      ],
+      "windFrom": 225,
+      "windTo": 45,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

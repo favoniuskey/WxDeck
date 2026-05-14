@@ -1,0 +1,66 @@
+{
+  "icao": "LFBK",
+  "name": "Montluçon Guéret",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "17",
+      "heading": 167,
+      "lengthFt": 6234,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "35",
+      "heading": 347,
+      "lengthFt": 6234,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 17",
+      "arrRunways": [
+        "17"
+      ],
+      "depRunways": [
+        "17"
+      ],
+      "windFrom": 77,
+      "windTo": 257,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 35",
+      "arrRunways": [
+        "35"
+      ],
+      "depRunways": [
+        "35"
+      ],
+      "windFrom": 257,
+      "windTo": 77,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

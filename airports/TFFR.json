@@ -1,0 +1,69 @@
+{
+  "icao": "TFFR",
+  "name": "Guadeloupe Maryse Condé",
+  "region": "dom-tom",
+  "transitionAltitude": 9000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 100
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 110
+    }
+  ],
+  "runways": [
+    {
+      "id": "12",
+      "heading": 117,
+      "lengthFt": 11499,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "30",
+      "heading": 297,
+      "lengthFt": 11499,
+      "surface": "asphalt",
+      "ils": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face 12 (alizés)",
+      "arrRunways": [
+        "12"
+      ],
+      "depRunways": [
+        "12"
+      ],
+      "windFrom": 30,
+      "windTo": 210,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "Face 30",
+      "arrRunways": [
+        "30"
+      ],
+      "depRunways": [
+        "30"
+      ],
+      "windFrom": 210,
+      "windTo": 30,
+      "minSpeed": 5,
+      "priority": 2,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [
+    "ILS CAT I sur les deux QFU."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "icao": "LFSB",
+  "name": "Bâle-Mulhouse EuroAirport",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "15",
+      "heading": 154,
+      "lengthFt": 12795,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "33",
+      "heading": 334,
+      "lengthFt": 12795,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "08",
+      "heading": 76,
+      "lengthFt": 5413,
+      "surface": "asphalt",
+      "ils": false
+    },
+    {
+      "id": "26",
+      "heading": 256,
+      "lengthFt": 5413,
+      "surface": "asphalt",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face nord-ouest (préférentielle)",
+      "arrRunways": [
+        "33"
+      ],
+      "depRunways": [
+        "33"
+      ],
+      "windFrom": 60,
+      "windTo": 240,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "Face sud-est",
+      "arrRunways": [
+        "15"
+      ],
+      "depRunways": [
+        "15"
+      ],
+      "windFrom": 240,
+      "windTo": 60,
+      "minSpeed": 5,
+      "priority": 2,
+      "conditions": []
+    },
+    {
+      "name": "Piste 08/26 (secondaire vents forts)",
+      "arrRunways": [
+        "26"
+      ],
+      "depRunways": [
+        "26"
+      ],
+      "windFrom": 200,
+      "windTo": 20,
+      "minSpeed": 20,
+      "priority": 3,
+      "conditions": [
+        "crossWind"
+      ],
+      "notes": "Aviation générale principalement."
+    }
+  ],
+  "specialNotes": [
+    "Aéroport binational FR/CH.",
+    "Pistes 08/26 fermées la nuit.",
+    "ILS CAT III sur 15."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

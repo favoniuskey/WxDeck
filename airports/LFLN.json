@@ -1,0 +1,53 @@
+{
+  "icao": "LFLN",
+  "name": "Saint-Yan",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "15L",
+      "heading": 148,
+      "lengthFt": 6660,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "33R",
+      "heading": 328,
+      "lengthFt": 6660,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "15R",
+      "heading": 148,
+      "lengthFt": 4921,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "33L",
+      "heading": 328,
+      "lengthFt": 4921,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "icao": "TFFJ",
+  "name": "Saint-Barthélémy Rémy de Haenen",
+  "region": "dom-tom",
+  "transitionAltitude": 1500,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 30
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 40
+    }
+  ],
+  "runways": [
+    {
+      "id": "10",
+      "heading": 99,
+      "lengthFt": 2133,
+      "surface": "asphalt",
+      "ils": false
+    },
+    {
+      "id": "28",
+      "heading": 279,
+      "lengthFt": 2133,
+      "surface": "asphalt",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "ATT 10 / DEP 28 (procédure standard)",
+      "arrRunways": [
+        "10"
+      ],
+      "depRunways": [
+        "28"
+      ],
+      "windFrom": 0,
+      "windTo": 360,
+      "priority": 1,
+      "conditions": [
+        "visualOnly",
+        "pilotRated"
+      ],
+      "notes": "Procédure quasi systématique imposée par le relief (col La Tourmente). Approche visuelle obligatoire."
+    },
+    {
+      "name": "ATT 28 / DEP 10 (exceptionnel)",
+      "arrRunways": [
+        "28"
+      ],
+      "depRunways": [
+        "10"
+      ],
+      "windFrom": 250,
+      "windTo": 310,
+      "minSpeed": 10,
+      "priority": 2,
+      "conditions": [
+        "strongWestWind",
+        "pilotRated"
+      ]
+    }
+  ],
+  "specialNotes": [
+    "TA anomalie 1500 ft (géographie / relief).",
+    "Piste très courte (~650 m), pilote agréé TFFJ requis.",
+    "VFR jour uniquement, PPR."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

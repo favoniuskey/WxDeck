@@ -1,0 +1,66 @@
+{
+  "icao": "LFCY",
+  "name": "Royan Médis",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "10",
+      "heading": 102,
+      "lengthFt": 4117,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "28",
+      "heading": 282,
+      "lengthFt": 4117,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 10",
+      "arrRunways": [
+        "10"
+      ],
+      "depRunways": [
+        "10"
+      ],
+      "windFrom": 12,
+      "windTo": 192,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 28",
+      "arrRunways": [
+        "28"
+      ],
+      "depRunways": [
+        "28"
+      ],
+      "windFrom": 192,
+      "windTo": 12,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

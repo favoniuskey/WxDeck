@@ -1,0 +1,53 @@
+{
+  "icao": "LFRD",
+  "name": "Dinard Pleurtuit Saint-Malo",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "12",
+      "heading": 115,
+      "lengthFt": 4708,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "30",
+      "heading": 295,
+      "lengthFt": 4708,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "17",
+      "heading": 170,
+      "lengthFt": 7218,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "35",
+      "heading": 350,
+      "lengthFt": 7218,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

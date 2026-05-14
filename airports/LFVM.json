@@ -1,0 +1,66 @@
+{
+  "icao": "LFVM",
+  "name": "Miquelon",
+  "region": "dom-tom",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "12",
+      "heading": 98,
+      "lengthFt": 3280,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "30",
+      "heading": 278,
+      "lengthFt": 3280,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 12",
+      "arrRunways": [
+        "12"
+      ],
+      "depRunways": [
+        "12"
+      ],
+      "windFrom": 8,
+      "windTo": 188,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 30",
+      "arrRunways": [
+        "30"
+      ],
+      "depRunways": [
+        "30"
+      ],
+      "windFrom": 188,
+      "windTo": 8,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

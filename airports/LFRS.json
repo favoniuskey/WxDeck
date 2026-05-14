@@ -1,0 +1,71 @@
+{
+  "icao": "LFRS",
+  "name": "Nantes Atlantique",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "03",
+      "heading": 26,
+      "lengthFt": 9514,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "21",
+      "heading": 206,
+      "lengthFt": 9514,
+      "surface": "asphalt",
+      "ils": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face sud-ouest (préférentielle)",
+      "arrRunways": [
+        "21"
+      ],
+      "depRunways": [
+        "21"
+      ],
+      "windFrom": 110,
+      "windTo": 290,
+      "priority": 1,
+      "conditions": [],
+      "notes": "Moindre bruit (approche océan)."
+    },
+    {
+      "name": "Face nord-est",
+      "arrRunways": [
+        "03"
+      ],
+      "depRunways": [
+        "03"
+      ],
+      "windFrom": 290,
+      "windTo": 110,
+      "minSpeed": 5,
+      "priority": 2,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [
+    "Piste 21 préférentielle (survol agglomération).",
+    "Restrictions nocturnes (arrêté 2021)."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

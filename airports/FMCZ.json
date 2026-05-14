@@ -1,0 +1,71 @@
+{
+  "icao": "FMCZ",
+  "name": "Mayotte Marcel Henry",
+  "region": "dom-tom",
+  "transitionAltitude": 4000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 50
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 60
+    }
+  ],
+  "runways": [
+    {
+      "id": "16",
+      "heading": 162,
+      "lengthFt": 6234,
+      "surface": "asphalt",
+      "ils": false
+    },
+    {
+      "id": "34",
+      "heading": 342,
+      "lengthFt": 6234,
+      "surface": "asphalt",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face 34 (mousson sèche)",
+      "arrRunways": [
+        "34"
+      ],
+      "depRunways": [
+        "34"
+      ],
+      "windFrom": 270,
+      "windTo": 90,
+      "priority": 1,
+      "conditions": [],
+      "notes": "Mai-octobre, alizés SE déviés."
+    },
+    {
+      "name": "Face 16 (mousson humide)",
+      "arrRunways": [
+        "16"
+      ],
+      "depRunways": [
+        "16"
+      ],
+      "windFrom": 90,
+      "windTo": 270,
+      "priority": 2,
+      "conditions": [],
+      "notes": "Novembre-avril, kashkazi NW."
+    }
+  ],
+  "specialNotes": [
+    "Piste sur Petite-Terre, environnement insulaire restreint.",
+    "Pas d'ILS - RNP/VOR/NDB."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

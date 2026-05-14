@@ -1,0 +1,71 @@
+{
+  "icao": "LFKJ",
+  "name": "Ajaccio Napoléon Bonaparte",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "02",
+      "heading": 21,
+      "lengthFt": 7913,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "20",
+      "heading": 201,
+      "lengthFt": 7913,
+      "surface": "asphalt",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 02 (préférentielle ILS)",
+      "arrRunways": [
+        "02"
+      ],
+      "depRunways": [
+        "02"
+      ],
+      "windFrom": 290,
+      "windTo": 110,
+      "priority": 1,
+      "conditions": [],
+      "notes": "ILS CAT I. Approche depuis le golfe."
+    },
+    {
+      "name": "QFU 20",
+      "arrRunways": [
+        "20"
+      ],
+      "depRunways": [
+        "20"
+      ],
+      "windFrom": 110,
+      "windTo": 290,
+      "priority": 2,
+      "conditions": [],
+      "notes": "Sans ILS (VOR/RNP). Décollage face mer."
+    }
+  ],
+  "specialNotes": [
+    "Piste unique, relief montagneux à l'est.",
+    "Effets venturi du golfe - cisaillements signalés."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

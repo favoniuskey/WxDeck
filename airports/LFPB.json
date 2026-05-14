@@ -1,0 +1,125 @@
+{
+  "icao": "LFPB",
+  "name": "Paris Le Bourget",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "03",
+      "heading": 26,
+      "lengthFt": 9843,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "21",
+      "heading": 206,
+      "lengthFt": 9843,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "07",
+      "heading": 67,
+      "lengthFt": 8743,
+      "surface": "asphalt",
+      "ils": false
+    },
+    {
+      "id": "25",
+      "heading": 247,
+      "lengthFt": 8743,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "09",
+      "heading": 86,
+      "lengthFt": 6004,
+      "surface": "asphalt",
+      "ils": false
+    },
+    {
+      "id": "27",
+      "heading": 266,
+      "lengthFt": 6004,
+      "surface": "asphalt",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face ouest standard (mono)",
+      "arrRunways": [
+        "25"
+      ],
+      "depRunways": [
+        "27"
+      ],
+      "windFrom": 170,
+      "windTo": 350,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "Face ouest - doublet 25/21",
+      "arrRunways": [
+        "25"
+      ],
+      "depRunways": [
+        "21"
+      ],
+      "windFrom": 170,
+      "windTo": 350,
+      "priority": 2,
+      "conditions": [],
+      "notes": "Trafic élevé (salon du Bourget)."
+    },
+    {
+      "name": "Face est standard (mono)",
+      "arrRunways": [
+        "07"
+      ],
+      "depRunways": [
+        "09"
+      ],
+      "windFrom": 350,
+      "windTo": 170,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "Face est - doublet 07/03",
+      "arrRunways": [
+        "07"
+      ],
+      "depRunways": [
+        "03"
+      ],
+      "windFrom": 350,
+      "windTo": 170,
+      "priority": 2,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [
+    "Aérodrome dédié aviation d'affaires.",
+    "Restrictions nocturnes (arrêté 06/10/1994 modifié).",
+    "Salon International de l'Aéronautique tous les 2 ans."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

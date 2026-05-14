@@ -1,0 +1,87 @@
+{
+  "icao": "LFMN",
+  "name": "Nice Côte d'Azur",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "04L",
+      "heading": 43,
+      "lengthFt": 9711,
+      "surface": "asphalt",
+      "ils": false
+    },
+    {
+      "id": "22R",
+      "heading": 223,
+      "lengthFt": 9711,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "04R",
+      "heading": 43,
+      "lengthFt": 8038,
+      "surface": "asphalt",
+      "ils": false
+    },
+    {
+      "id": "22L",
+      "heading": 223,
+      "lengthFt": 8038,
+      "surface": "asphalt",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face terre 22 (préférentielle)",
+      "arrRunways": [
+        "22L"
+      ],
+      "depRunways": [
+        "22R"
+      ],
+      "windFrom": 130,
+      "windTo": 310,
+      "priority": 1,
+      "conditions": [],
+      "notes": "ILS CAT III sur 22R. Approche par la mer."
+    },
+    {
+      "name": "Face mer 04 (brise nocturne)",
+      "arrRunways": [
+        "04L"
+      ],
+      "depRunways": [
+        "04R"
+      ],
+      "windFrom": 310,
+      "windTo": 130,
+      "minSpeed": 5,
+      "priority": 2,
+      "conditions": [],
+      "notes": "Pas d'ILS face 04 (relief). Configuration minoritaire."
+    }
+  ],
+  "specialNotes": [
+    "Relief contraignant au nord (Alpes-Maritimes).",
+    "LVP CAT III uniquement 22R.",
+    "Restrictions bruit nocturnes - 22 favorisé."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

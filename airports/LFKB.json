@@ -1,0 +1,71 @@
+{
+  "icao": "LFKB",
+  "name": "Bastia Poretta",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "16",
+      "heading": 164,
+      "lengthFt": 8366,
+      "surface": "asphalt",
+      "ils": false
+    },
+    {
+      "id": "34",
+      "heading": 344,
+      "lengthFt": 8366,
+      "surface": "asphalt",
+      "ils": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 34 (préférentielle ILS)",
+      "arrRunways": [
+        "34"
+      ],
+      "depRunways": [
+        "34"
+      ],
+      "windFrom": 250,
+      "windTo": 70,
+      "priority": 1,
+      "conditions": [],
+      "notes": "ILS disponible. Approche par la plaine orientale."
+    },
+    {
+      "name": "QFU 16",
+      "arrRunways": [
+        "16"
+      ],
+      "depRunways": [
+        "16"
+      ],
+      "windFrom": 70,
+      "windTo": 250,
+      "priority": 2,
+      "conditions": [],
+      "notes": "Sans ILS. Imposée par vent du sud."
+    }
+  ],
+  "specialNotes": [
+    "Relief montagneux à l'ouest - approches par l'est.",
+    "Vent traversier d'ouest fréquent en altitude."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

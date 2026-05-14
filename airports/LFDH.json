@@ -1,0 +1,53 @@
+{
+  "icao": "LFDH",
+  "name": "Auch Gers",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "18",
+      "heading": 184,
+      "lengthFt": 6233,
+      "surface": "concrete",
+      "ils": false
+    },
+    {
+      "id": "36",
+      "heading": 4,
+      "lengthFt": 6233,
+      "surface": "concrete",
+      "ils": false
+    },
+    {
+      "id": "36",
+      "heading": 4,
+      "lengthFt": 6233,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "18",
+      "heading": 184,
+      "lengthFt": 6233,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

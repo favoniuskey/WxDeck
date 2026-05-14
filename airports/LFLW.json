@@ -1,0 +1,66 @@
+{
+  "icao": "LFLW",
+  "name": "Aurillac",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "15",
+      "heading": 150,
+      "lengthFt": 5577,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "33",
+      "heading": 330,
+      "lengthFt": 5577,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 15",
+      "arrRunways": [
+        "15"
+      ],
+      "depRunways": [
+        "15"
+      ],
+      "windFrom": 60,
+      "windTo": 240,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 33",
+      "arrRunways": [
+        "33"
+      ],
+      "depRunways": [
+        "33"
+      ],
+      "windFrom": 240,
+      "windTo": 60,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

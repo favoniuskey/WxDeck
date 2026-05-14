@@ -1,0 +1,66 @@
+{
+  "icao": "LFQT",
+  "name": "Merville Calonne",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "04",
+      "heading": 37,
+      "lengthFt": 6037,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "22",
+      "heading": 217,
+      "lengthFt": 6037,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 04",
+      "arrRunways": [
+        "04"
+      ],
+      "depRunways": [
+        "04"
+      ],
+      "windFrom": 307,
+      "windTo": 127,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 22",
+      "arrRunways": [
+        "22"
+      ],
+      "depRunways": [
+        "22"
+      ],
+      "windFrom": 127,
+      "windTo": 307,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

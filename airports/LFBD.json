@@ -1,0 +1,100 @@
+{
+  "icao": "LFBD",
+  "name": "Bordeaux Mérignac",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "05",
+      "heading": 53,
+      "lengthFt": 10171,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "23",
+      "heading": 233,
+      "lengthFt": 10171,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "11",
+      "heading": 113,
+      "lengthFt": 7710,
+      "surface": "asphalt",
+      "ils": false
+    },
+    {
+      "id": "29",
+      "heading": 293,
+      "lengthFt": 7710,
+      "surface": "asphalt",
+      "ils": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face sud-ouest (préférentielle)",
+      "arrRunways": [
+        "23"
+      ],
+      "depRunways": [
+        "23"
+      ],
+      "windFrom": 140,
+      "windTo": 320,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "Face nord-est",
+      "arrRunways": [
+        "05"
+      ],
+      "depRunways": [
+        "05"
+      ],
+      "windFrom": 320,
+      "windTo": 140,
+      "priority": 2,
+      "conditions": []
+    },
+    {
+      "name": "Face ouest (vents traversiers)",
+      "arrRunways": [
+        "29"
+      ],
+      "depRunways": [
+        "29"
+      ],
+      "windFrom": 200,
+      "windTo": 20,
+      "minSpeed": 15,
+      "priority": 3,
+      "conditions": [
+        "crossWind"
+      ],
+      "notes": "Piste 11/29 si traversier fort sur principale."
+    }
+  ],
+  "specialNotes": [
+    "Mixte civil/militaire (BA 106).",
+    "Pas d'opérations simultanées 05/23 + 11/29 (pistes sécantes)."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

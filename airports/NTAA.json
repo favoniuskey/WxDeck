@@ -1,0 +1,66 @@
+{
+  "icao": "NTAA",
+  "name": "Tahiti Faa'a",
+  "region": "dom-tom",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "04",
+      "heading": 54,
+      "lengthFt": 11360,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "22",
+      "heading": 234,
+      "lengthFt": 11360,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 04",
+      "arrRunways": [
+        "04"
+      ],
+      "depRunways": [
+        "04"
+      ],
+      "windFrom": 324,
+      "windTo": 144,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 22",
+      "arrRunways": [
+        "22"
+      ],
+      "depRunways": [
+        "22"
+      ],
+      "windFrom": 144,
+      "windTo": 324,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

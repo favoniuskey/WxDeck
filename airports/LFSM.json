@@ -1,0 +1,66 @@
+{
+  "icao": "LFSM",
+  "name": "Montbéliard Courcelles",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "08",
+      "heading": 79,
+      "lengthFt": 5578,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "26",
+      "heading": 259,
+      "lengthFt": 5578,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 08",
+      "arrRunways": [
+        "08"
+      ],
+      "depRunways": [
+        "08"
+      ],
+      "windFrom": 349,
+      "windTo": 169,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 26",
+      "arrRunways": [
+        "26"
+      ],
+      "depRunways": [
+        "26"
+      ],
+      "windFrom": 169,
+      "windTo": 349,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

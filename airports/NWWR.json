@@ -1,0 +1,66 @@
+{
+  "icao": "NWWR",
+  "name": "Maré La Roche",
+  "region": "dom-tom",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "13",
+      "heading": 139,
+      "lengthFt": 3281,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "31",
+      "heading": 319,
+      "lengthFt": 3281,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 13",
+      "arrRunways": [
+        "13"
+      ],
+      "depRunways": [
+        "13"
+      ],
+      "windFrom": 49,
+      "windTo": 229,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 31",
+      "arrRunways": [
+        "31"
+      ],
+      "depRunways": [
+        "31"
+      ],
+      "windFrom": 229,
+      "windTo": 49,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

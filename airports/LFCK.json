@@ -1,0 +1,66 @@
+{
+  "icao": "LFCK",
+  "name": "Castres Mazamet",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "14",
+      "heading": 141,
+      "lengthFt": 5988,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "32",
+      "heading": 321,
+      "lengthFt": 5988,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 14",
+      "arrRunways": [
+        "14"
+      ],
+      "depRunways": [
+        "14"
+      ],
+      "windFrom": 51,
+      "windTo": 231,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 32",
+      "arrRunways": [
+        "32"
+      ],
+      "depRunways": [
+        "32"
+      ],
+      "windFrom": 231,
+      "windTo": 51,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

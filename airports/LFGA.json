@@ -1,0 +1,66 @@
+{
+  "icao": "LFGA",
+  "name": "Colmar Houssen",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "01",
+      "heading": 11,
+      "lengthFt": 5282,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "19",
+      "heading": 191,
+      "lengthFt": 5282,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 01",
+      "arrRunways": [
+        "01"
+      ],
+      "depRunways": [
+        "01"
+      ],
+      "windFrom": 281,
+      "windTo": 101,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 19",
+      "arrRunways": [
+        "19"
+      ],
+      "depRunways": [
+        "19"
+      ],
+      "windFrom": 101,
+      "windTo": 281,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "icao": "LFQM",
+  "name": "Besançon La Vèze",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "05",
+      "heading": 53,
+      "lengthFt": 4593,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "23",
+      "heading": 233,
+      "lengthFt": 4593,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 05",
+      "arrRunways": [
+        "05"
+      ],
+      "depRunways": [
+        "05"
+      ],
+      "windFrom": 323,
+      "windTo": 143,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 23",
+      "arrRunways": [
+        "23"
+      ],
+      "depRunways": [
+        "23"
+      ],
+      "windFrom": 143,
+      "windTo": 323,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

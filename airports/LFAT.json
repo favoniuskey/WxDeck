@@ -1,0 +1,66 @@
+{
+  "icao": "LFAT",
+  "name": "Le Touquet Elizabeth II",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "13",
+      "heading": 133,
+      "lengthFt": 6070,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "31",
+      "heading": 313,
+      "lengthFt": 6070,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 13",
+      "arrRunways": [
+        "13"
+      ],
+      "depRunways": [
+        "13"
+      ],
+      "windFrom": 43,
+      "windTo": 223,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 31",
+      "arrRunways": [
+        "31"
+      ],
+      "depRunways": [
+        "31"
+      ],
+      "windFrom": 223,
+      "windTo": 43,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "icao": "LFKF",
+  "name": "Figari Sud Corse",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "05",
+      "heading": 48,
+      "lengthFt": 8136,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "23",
+      "heading": 228,
+      "lengthFt": 8136,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 05",
+      "arrRunways": [
+        "05"
+      ],
+      "depRunways": [
+        "05"
+      ],
+      "windFrom": 318,
+      "windTo": 138,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 23",
+      "arrRunways": [
+        "23"
+      ],
+      "depRunways": [
+        "23"
+      ],
+      "windFrom": 138,
+      "windTo": 318,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

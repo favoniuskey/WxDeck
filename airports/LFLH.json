@@ -1,0 +1,66 @@
+{
+  "icao": "LFLH",
+  "name": "Chalon Champforgeuil",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "17",
+      "heading": 171,
+      "lengthFt": 4725,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "35",
+      "heading": 351,
+      "lengthFt": 4725,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 17",
+      "arrRunways": [
+        "17"
+      ],
+      "depRunways": [
+        "17"
+      ],
+      "windFrom": 81,
+      "windTo": 261,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 35",
+      "arrRunways": [
+        "35"
+      ],
+      "depRunways": [
+        "35"
+      ],
+      "windFrom": 261,
+      "windTo": 81,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'DSEG7Classic';
+  src: url('/fonts/DSEG7Classic-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: 'DSEG14Classic';
+  src: url('/fonts/DSEG14Classic-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: block;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-feature-settings: 'cv11', 'ss01', 'ss03';
+  -webkit-font-smoothing: antialiased;
+}
+
+.draggable {
+  -webkit-app-region: drag;
+}
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.04] border border-white/[0.08] backdrop-blur-xl shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)];
+  }
+  .glass-strong {
+    @apply bg-white/[0.07] border border-white/[0.12] backdrop-blur-2xl shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)];
+  }
+  .glass-pill {
+    @apply bg-white/[0.05] border border-white/10 backdrop-blur-xl rounded-full px-3 py-1 text-xs tracking-wide;
+  }
+  .glass-button {
+    @apply bg-white/[0.06] hover:bg-white/[0.10] active:bg-white/[0.14] border border-white/10 backdrop-blur-xl transition-colors rounded-xl px-4 py-2 text-sm font-medium;
+  }
+  .glass-input {
+    @apply bg-white/[0.04] border border-white/10 rounded-xl px-4 py-2.5 text-sm outline-none focus:border-accent/60 focus:bg-white/[0.06] transition-colors;
+  }
+}
+
+.seg7 {
+  font-family: 'DSEG7Classic', 'JetBrains Mono', monospace;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.seg14 {
+  font-family: 'DSEG14Classic', 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+.alizia-glow {
+  color: #ff2a18;
+  text-shadow:
+    0 0 3px rgba(255, 70, 40, 0.95),
+    0 0 8px rgba(255, 30, 0, 0.65),
+    0 0 16px rgba(255, 0, 0, 0.45);
+}
+.alizia-glow-dim {
+  color: rgba(95, 12, 6, 0.85);
+}
+.alizia-screen {
+  background:
+    radial-gradient(ellipse at 35% 15%, rgba(255, 60, 30, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 65% 85%, rgba(80, 0, 0, 0.45) 0%, transparent 60%),
+    linear-gradient(180deg, #150202 0%, #040101 100%);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.04),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.9),
+    inset 0 0 40px rgba(0, 0, 0, 0.85);
+}
+.alizia-cell {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.25) 100%);
+  box-shadow:
+    inset 1px 0 0 rgba(255, 255, 255, 0.025),
+    inset -1px 0 0 rgba(0, 0, 0, 0.6);
+}
+.alizia-cell-group {
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.8),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.02);
+}
+.alizia-sticker {
+  background: linear-gradient(180deg, #f4f4f4 0%, #d8d8d8 100%);
+  color: #1a1a1a;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  font-size: 9px;
+  padding: 3px 8px;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+.alizia-bezel {
+  background:
+    linear-gradient(180deg, #2a2a2a 0%, #0c0c0c 30%, #1a1a1a 60%, #0a0a0a 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.8),
+    0 30px 60px -20px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.alizia-active-glow {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(255, 40, 20, 0.2),
+    0 30px 60px -20px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+@keyframes blink-led {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.alizia-led {
+  animation: blink-led 2s ease-in-out infinite;
+}
+
+@keyframes alizia-button-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 14px -2px rgba(255, 40, 20, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      inset 0 0 0 1px rgba(255, 90, 60, 0.45);
+  }
+  50% {
+    box-shadow:
+      0 0 22px -2px rgba(255, 40, 20, 0.75),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 0 0 1px rgba(255, 110, 80, 0.7);
+  }
+}
+.alizia-button-active {
+  animation: alizia-button-pulse 2.4s ease-in-out infinite;
+}
+
+.bg-app {
+  background:
+    radial-gradient(1200px 800px at 10% -10%, rgba(96,165,250,0.10), transparent 60%),
+    radial-gradient(900px 600px at 110% 110%, rgba(251,191,36,0.08), transparent 55%),
+    linear-gradient(180deg, rgba(10,14,21,0.85) 0%, rgba(10,14,21,0.92) 100%);
+}
+
+.scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+.scrollbar-thin::-webkit-scrollbar-track { background: transparent; }

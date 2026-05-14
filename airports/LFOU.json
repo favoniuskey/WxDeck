@@ -1,0 +1,53 @@
+{
+  "icao": "LFOU",
+  "name": "Cholet Le Pontreau",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "03",
+      "heading": 25,
+      "lengthFt": 4528,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "21",
+      "heading": 205,
+      "lengthFt": 4528,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "03R",
+      "heading": 25,
+      "lengthFt": 3379,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "21L",
+      "heading": 205,
+      "lengthFt": 3379,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

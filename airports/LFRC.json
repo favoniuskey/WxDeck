@@ -1,0 +1,66 @@
+{
+  "icao": "LFRC",
+  "name": "Cherbourg Manche",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "10",
+      "heading": 101,
+      "lengthFt": 8005,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "28",
+      "heading": 281,
+      "lengthFt": 8005,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 10",
+      "arrRunways": [
+        "10"
+      ],
+      "depRunways": [
+        "10"
+      ],
+      "windFrom": 11,
+      "windTo": 191,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 28",
+      "arrRunways": [
+        "28"
+      ],
+      "depRunways": [
+        "28"
+      ],
+      "windFrom": 191,
+      "windTo": 11,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "icao": "TFFM",
+  "name": "Les Saintes Terre-de-Haut",
+  "region": "dom-tom",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "09",
+      "heading": 78,
+      "lengthFt": 4068,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "27",
+      "heading": 258,
+      "lengthFt": 4068,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 09",
+      "arrRunways": [
+        "09"
+      ],
+      "depRunways": [
+        "09"
+      ],
+      "windFrom": 348,
+      "windTo": 168,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 27",
+      "arrRunways": [
+        "27"
+      ],
+      "depRunways": [
+        "27"
+      ],
+      "windFrom": 168,
+      "windTo": 348,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "icao": "LFMH",
+  "name": "Saint-Étienne Loire",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "17",
+      "heading": 175,
+      "lengthFt": 7546,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "35",
+      "heading": 355,
+      "lengthFt": 7546,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 17",
+      "arrRunways": [
+        "17"
+      ],
+      "depRunways": [
+        "17"
+      ],
+      "windFrom": 85,
+      "windTo": 265,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 35",
+      "arrRunways": [
+        "35"
+      ],
+      "depRunways": [
+        "35"
+      ],
+      "windFrom": 265,
+      "windTo": 85,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "icao": "TFFF",
+  "name": "Martinique Aimé Césaire",
+  "region": "dom-tom",
+  "transitionAltitude": 9000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 100
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 110
+    }
+  ],
+  "runways": [
+    {
+      "id": "10",
+      "heading": 100,
+      "lengthFt": 10827,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "28",
+      "heading": 280,
+      "lengthFt": 10827,
+      "surface": "asphalt",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face est (alizés)",
+      "arrRunways": [
+        "10"
+      ],
+      "depRunways": [
+        "10"
+      ],
+      "windFrom": 10,
+      "windTo": 190,
+      "priority": 1,
+      "conditions": [],
+      "notes": "Alizés ENE dominants. ILS CAT I sur 10."
+    },
+    {
+      "name": "Face ouest",
+      "arrRunways": [
+        "28"
+      ],
+      "depRunways": [
+        "28"
+      ],
+      "windFrom": 190,
+      "windTo": 10,
+      "minSpeed": 5,
+      "priority": 2,
+      "conditions": [],
+      "notes": "Rare (perturbations tropicales)."
+    }
+  ],
+  "specialNotes": [
+    "Saison cyclonique juin-novembre."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

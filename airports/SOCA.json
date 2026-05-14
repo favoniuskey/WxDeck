@@ -1,0 +1,71 @@
+{
+  "icao": "SOCA",
+  "name": "Cayenne Félix Éboué",
+  "region": "dom-tom",
+  "transitionAltitude": 3000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 40
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 50
+    }
+  ],
+  "runways": [
+    {
+      "id": "08",
+      "heading": 81,
+      "lengthFt": 10499,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "26",
+      "heading": 261,
+      "lengthFt": 10499,
+      "surface": "asphalt",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face 08 (alizés)",
+      "arrRunways": [
+        "08"
+      ],
+      "depRunways": [
+        "08"
+      ],
+      "windFrom": 350,
+      "windTo": 170,
+      "priority": 1,
+      "conditions": [],
+      "notes": "Alizés NE dominants. ILS CAT I."
+    },
+    {
+      "name": "Face 26",
+      "arrRunways": [
+        "26"
+      ],
+      "depRunways": [
+        "26"
+      ],
+      "windFrom": 170,
+      "windTo": 350,
+      "minSpeed": 5,
+      "priority": 2,
+      "conditions": [],
+      "notes": "Rare (lignes de grains). Approche non-précision."
+    }
+  ],
+  "specialNotes": [
+    "Activité orageuse intense saison humide (ZCIT)."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

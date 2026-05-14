@@ -1,0 +1,67 @@
+{
+  "icao": "LFLC",
+  "name": "Clermont-Ferrand Auvergne",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "01",
+      "heading": 8,
+      "lengthFt": 2313,
+      "surface": "grass",
+      "ils": false
+    },
+    {
+      "id": "19",
+      "heading": 188,
+      "lengthFt": 2313,
+      "surface": "grass",
+      "ils": false
+    },
+    {
+      "id": "08",
+      "heading": 82,
+      "lengthFt": 9885,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "26",
+      "heading": 262,
+      "lengthFt": 9885,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "08L",
+      "heading": 82,
+      "lengthFt": 2953,
+      "surface": "grass",
+      "ils": false
+    },
+    {
+      "id": "26R",
+      "heading": 262,
+      "lengthFt": 2953,
+      "surface": "grass",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

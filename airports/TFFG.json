@@ -1,0 +1,66 @@
+{
+  "icao": "TFFG",
+  "name": "Saint-Martin Grand'Case",
+  "region": "dom-tom",
+  "transitionAltitude": 9000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 100
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 110
+    }
+  ],
+  "runways": [
+    {
+      "id": "12",
+      "heading": 107,
+      "lengthFt": 3937,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "30",
+      "heading": 287,
+      "lengthFt": 3937,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 12",
+      "arrRunways": [
+        "12"
+      ],
+      "depRunways": [
+        "12"
+      ],
+      "windFrom": 17,
+      "windTo": 197,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 30",
+      "arrRunways": [
+        "30"
+      ],
+      "depRunways": [
+        "30"
+      ],
+      "windFrom": 197,
+      "windTo": 17,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

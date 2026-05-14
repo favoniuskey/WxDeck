@@ -1,0 +1,53 @@
+{
+  "icao": "LFOB",
+  "name": "Beauvais Tillé",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "04",
+      "heading": 42,
+      "lengthFt": 3625,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "22",
+      "heading": 222,
+      "lengthFt": 3625,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "12",
+      "heading": 125,
+      "lengthFt": 7972,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "30",
+      "heading": 305,
+      "lengthFt": 7972,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

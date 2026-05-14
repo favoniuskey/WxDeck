@@ -1,0 +1,66 @@
+{
+  "icao": "FMEP",
+  "name": "Saint-Pierre Pierrefonds",
+  "region": "dom-tom",
+  "transitionAltitude": 12000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 130
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 140
+    }
+  ],
+  "runways": [
+    {
+      "id": "15",
+      "heading": 129,
+      "lengthFt": 7000,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "33",
+      "heading": 309,
+      "lengthFt": 7000,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 15",
+      "arrRunways": [
+        "15"
+      ],
+      "depRunways": [
+        "15"
+      ],
+      "windFrom": 39,
+      "windTo": 219,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 33",
+      "arrRunways": [
+        "33"
+      ],
+      "depRunways": [
+        "33"
+      ],
+      "windFrom": 219,
+      "windTo": 39,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

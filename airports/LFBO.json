@@ -1,0 +1,84 @@
+{
+  "icao": "LFBO",
+  "name": "Toulouse Blagnac",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "14L",
+      "heading": 143,
+      "lengthFt": 9843,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "32R",
+      "heading": 323,
+      "lengthFt": 9843,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "14R",
+      "heading": 143,
+      "lengthFt": 11483,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "32L",
+      "heading": 323,
+      "lengthFt": 11483,
+      "surface": "asphalt",
+      "ils": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face nord-ouest (Autan)",
+      "arrRunways": [
+        "32L"
+      ],
+      "depRunways": [
+        "32R"
+      ],
+      "windFrom": 230,
+      "windTo": 50,
+      "priority": 1,
+      "conditions": [],
+      "notes": "Vent d'Autan. 32L ARR, 32R DEP."
+    },
+    {
+      "name": "Face sud-est",
+      "arrRunways": [
+        "14R"
+      ],
+      "depRunways": [
+        "14L"
+      ],
+      "windFrom": 50,
+      "windTo": 230,
+      "priority": 2,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [
+    "Doublet parallèle spécialisé (Airbus / commercial).",
+    "Vols d'essai Airbus fréquents (14L/32R)."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

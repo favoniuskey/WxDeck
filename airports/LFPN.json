@@ -1,0 +1,53 @@
+{
+  "icao": "LFPN",
+  "name": "Paris Toussus-le-Noble",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "07L",
+      "heading": 70,
+      "lengthFt": 3609,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "25R",
+      "heading": 250,
+      "lengthFt": 3609,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "07R",
+      "heading": 70,
+      "lengthFt": 3445,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "25L",
+      "heading": 250,
+      "lengthFt": 3445,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

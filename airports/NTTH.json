@@ -1,0 +1,66 @@
+{
+  "icao": "NTTH",
+  "name": "Huahine Fare",
+  "region": "dom-tom",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "07",
+      "heading": 80,
+      "lengthFt": 4921,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "25",
+      "heading": 260,
+      "lengthFt": 4921,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 07",
+      "arrRunways": [
+        "07"
+      ],
+      "depRunways": [
+        "07"
+      ],
+      "windFrom": 350,
+      "windTo": 170,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 25",
+      "arrRunways": [
+        "25"
+      ],
+      "depRunways": [
+        "25"
+      ],
+      "windFrom": 170,
+      "windTo": 350,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

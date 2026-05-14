@@ -1,0 +1,66 @@
+{
+  "icao": "LFCL",
+  "name": "Toulouse Lasbordes",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "15",
+      "heading": 155,
+      "lengthFt": 3117,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "33",
+      "heading": 335,
+      "lengthFt": 3117,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 15",
+      "arrRunways": [
+        "15"
+      ],
+      "depRunways": [
+        "15"
+      ],
+      "windFrom": 65,
+      "windTo": 245,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 33",
+      "arrRunways": [
+        "33"
+      ],
+      "depRunways": [
+        "33"
+      ],
+      "windFrom": 245,
+      "windTo": 65,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

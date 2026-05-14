@@ -1,0 +1,66 @@
+{
+  "icao": "LFBN",
+  "name": "Niort Marais Poitevin",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "07",
+      "heading": 68,
+      "lengthFt": 5774,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "25",
+      "heading": 248,
+      "lengthFt": 5774,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 07",
+      "arrRunways": [
+        "07"
+      ],
+      "depRunways": [
+        "07"
+      ],
+      "windFrom": 338,
+      "windTo": 158,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 25",
+      "arrRunways": [
+        "25"
+      ],
+      "depRunways": [
+        "25"
+      ],
+      "windFrom": 158,
+      "windTo": 338,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

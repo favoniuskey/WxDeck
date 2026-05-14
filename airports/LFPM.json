@@ -1,0 +1,53 @@
+{
+  "icao": "LFPM",
+  "name": "Melun Villaroche",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "01",
+      "heading": 13,
+      "lengthFt": 4265,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "19",
+      "heading": 193,
+      "lengthFt": 4265,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "10",
+      "heading": 103,
+      "lengthFt": 6480,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "28",
+      "heading": 283,
+      "lengthFt": 6480,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

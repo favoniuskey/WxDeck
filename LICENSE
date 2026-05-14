@@ -1,0 +1,39 @@
+WxDeck — Proprietary License
+Copyright (c) 2026 Keywan D (FavoniusKey). All rights reserved.
+
+Permission is NOT granted, free of charge or otherwise, to any person to use,
+copy, modify, merge, publish, distribute, sublicense, sell, or otherwise
+exploit copies of this software (the "Software") or any portion thereof,
+except as expressly authorized in writing by the copyright holder.
+
+The source code is published publicly on GitHub for transparency, audit,
+educational reading, and bug reporting purposes only. No license to use,
+fork for redistribution, repackage, rebrand, or commercialize is granted
+by the act of publication.
+
+You MAY:
+  - Read the source code.
+  - Run unmodified official binaries provided by the copyright holder.
+  - Submit issues and pull requests (contributions are licensed back to the
+    copyright holder under the same terms).
+  - Reference small excerpts for educational discussion with proper credit.
+
+You MAY NOT, without prior written permission from the copyright holder:
+  - Redistribute the source code or compiled binaries.
+  - Create or distribute modified versions, forks, or derivative works.
+  - Use the Software or any portion thereof in any commercial product or
+    service.
+  - Remove, alter, or obscure the copyright notice, authorship attribution,
+    or branding ("WxDeck", "FavoniusKey").
+  - Use the name "WxDeck" or the FavoniusKey brand for derivative projects.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR ITS USE.
+
+WxDeck is a tool for flight simulation use only. It is NOT intended for, and
+MUST NOT be used in, real-world aviation or air traffic control operations.
+
+Contact: keywan.dupil@stelisys.com

@@ -1,0 +1,39 @@
+appId: io.favoniuskey.wxdeck
+productName: WxDeck
+copyright: Copyright (c) 2026 Keywan D (FavoniusKey)
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**/*
+  - airports/**/*
+  - package.json
+  - LICENSE
+extraResources:
+  - from: airports
+    to: airports
+    filter: ["**/*.json"]
+  - from: resources/icon.png
+    to: icon.png
+asar: true
+asarUnpack:
+  - resources/**
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  artifactName: WxDeck-${version}-Setup.${ext}
+  icon: build/icon.ico
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  allowElevation: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: WxDeck
+publish:
+  provider: github
+  owner: favoniuskey
+  repo: WxDeck
+  releaseType: release

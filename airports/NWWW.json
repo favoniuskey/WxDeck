@@ -1,0 +1,82 @@
+{
+  "icao": "NWWW",
+  "name": "Nouméa La Tontouta",
+  "region": "dom-tom",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1032,
+      "maxQnh": 1050,
+      "flightLevel": 110
+    },
+    {
+      "minQnh": 1014,
+      "maxQnh": 1031,
+      "flightLevel": 120
+    },
+    {
+      "minQnh": 996,
+      "maxQnh": 1013,
+      "flightLevel": 130
+    },
+    {
+      "minQnh": 978,
+      "maxQnh": 995,
+      "flightLevel": 140
+    }
+  ],
+  "runways": [
+    {
+      "id": "11",
+      "heading": 113,
+      "lengthFt": 10892,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "29",
+      "heading": 293,
+      "lengthFt": 10892,
+      "surface": "asphalt",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face 11 (alizés SE)",
+      "arrRunways": [
+        "11"
+      ],
+      "depRunways": [
+        "11"
+      ],
+      "windFrom": 30,
+      "windTo": 210,
+      "priority": 1,
+      "conditions": [],
+      "notes": "ILS CAT I sur 11."
+    },
+    {
+      "name": "Face 29",
+      "arrRunways": [
+        "29"
+      ],
+      "depRunways": [
+        "29"
+      ],
+      "windFrom": 210,
+      "windTo": 30,
+      "minSpeed": 5,
+      "priority": 2,
+      "conditions": [],
+      "notes": "Approche RNP/VOR."
+    }
+  ],
+  "specialNotes": [
+    "AIP gérée par SNA-NC (Nouvelle-Calédonie).",
+    "Système TL FIXE par tranche QNH - bornes à valider AIP NWWW AD 2.16."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

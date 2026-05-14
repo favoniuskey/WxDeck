@@ -1,0 +1,70 @@
+{
+  "icao": "LFST",
+  "name": "Strasbourg Entzheim",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "05",
+      "heading": 49,
+      "lengthFt": 7874,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "23",
+      "heading": 229,
+      "lengthFt": 7874,
+      "surface": "asphalt",
+      "ils": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face sud-ouest (préférentielle)",
+      "arrRunways": [
+        "23"
+      ],
+      "depRunways": [
+        "23"
+      ],
+      "windFrom": 130,
+      "windTo": 310,
+      "priority": 1,
+      "conditions": [],
+      "notes": "ILS CAT III sur 23."
+    },
+    {
+      "name": "Face nord-est",
+      "arrRunways": [
+        "05"
+      ],
+      "depRunways": [
+        "05"
+      ],
+      "windFrom": 310,
+      "windTo": 130,
+      "minSpeed": 5,
+      "priority": 2,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [
+    "ILS CAT III sur 23."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

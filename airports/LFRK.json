@@ -1,0 +1,53 @@
+{
+  "icao": "LFRK",
+  "name": "Caen Carpiquet",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "13",
+      "heading": 125,
+      "lengthFt": 6233,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "31",
+      "heading": 305,
+      "lengthFt": 6233,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "13L",
+      "heading": 125,
+      "lengthFt": 2624,
+      "surface": "grass",
+      "ils": false
+    },
+    {
+      "id": "31R",
+      "heading": 305,
+      "lengthFt": 2624,
+      "surface": "grass",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

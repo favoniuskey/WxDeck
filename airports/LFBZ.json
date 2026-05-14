@@ -1,0 +1,66 @@
+{
+  "icao": "LFBZ",
+  "name": "Biarritz Pays Basque",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "09",
+      "heading": 89,
+      "lengthFt": 7382,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "27",
+      "heading": 269,
+      "lengthFt": 7382,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 09",
+      "arrRunways": [
+        "09"
+      ],
+      "depRunways": [
+        "09"
+      ],
+      "windFrom": 359,
+      "windTo": 179,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 27",
+      "arrRunways": [
+        "27"
+      ],
+      "depRunways": [
+        "27"
+      ],
+      "windFrom": 179,
+      "windTo": 359,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

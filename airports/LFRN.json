@@ -1,0 +1,53 @@
+{
+  "icao": "LFRN",
+  "name": "Rennes Saint-Jacques",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "10",
+      "heading": 101,
+      "lengthFt": 6890,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "28",
+      "heading": 281,
+      "lengthFt": 6890,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "14",
+      "heading": 142,
+      "lengthFt": 2788,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "32",
+      "heading": 322,
+      "lengthFt": 2788,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

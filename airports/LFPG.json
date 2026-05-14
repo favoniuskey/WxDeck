@@ -1,0 +1,150 @@
+{
+  "icao": "LFPG",
+  "name": "Paris Charles de Gaulle",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "08L",
+      "heading": 82,
+      "lengthFt": 13780,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "26R",
+      "heading": 262,
+      "lengthFt": 13780,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "08R",
+      "heading": 82,
+      "lengthFt": 8858,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "26L",
+      "heading": 262,
+      "lengthFt": 8858,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "09L",
+      "heading": 92,
+      "lengthFt": 8858,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "27R",
+      "heading": 272,
+      "lengthFt": 8858,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "09R",
+      "heading": 92,
+      "lengthFt": 13829,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "27L",
+      "heading": 272,
+      "lengthFt": 13829,
+      "surface": "asphalt",
+      "ils": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face ouest - doublets indépendants (jour)",
+      "arrRunways": [
+        "26L",
+        "27R"
+      ],
+      "depRunways": [
+        "26R",
+        "27L"
+      ],
+      "windFrom": 170,
+      "windTo": 350,
+      "priority": 1,
+      "conditions": [],
+      "notes": "Configuration standard de jour, doublets indépendants. 26R/27L décollages, 26L/27R atterrissages."
+    },
+    {
+      "name": "Face est - doublets indépendants (jour)",
+      "arrRunways": [
+        "08R",
+        "09L"
+      ],
+      "depRunways": [
+        "08L",
+        "09R"
+      ],
+      "windFrom": 350,
+      "windTo": 170,
+      "priority": 1,
+      "conditions": [],
+      "notes": "Configuration standard de jour face est. 08L/09R décollages, 08R/09L atterrissages."
+    },
+    {
+      "name": "Face ouest - PEB nuit (mono)",
+      "arrRunways": [
+        "27R"
+      ],
+      "depRunways": [
+        "27L"
+      ],
+      "windFrom": 170,
+      "windTo": 350,
+      "priority": 2,
+      "timeWindow": "22:30-06:15",
+      "timeWindowTz": "Europe/Paris",
+      "conditions": [],
+      "notes": "Arrêté du 06/11/2003. Pistes nord préférentielles, monopiste de nuit."
+    },
+    {
+      "name": "Face est - PEB nuit (mono)",
+      "arrRunways": [
+        "09L"
+      ],
+      "depRunways": [
+        "09R"
+      ],
+      "windFrom": 350,
+      "windTo": 170,
+      "priority": 2,
+      "timeWindow": "22:30-06:15",
+      "timeWindowTz": "Europe/Paris",
+      "conditions": [],
+      "notes": "Arrêté du 06/11/2003 face est."
+    }
+  ],
+  "specialNotes": [
+    "Doublets indépendants : pistes nord (08L/26R, 09R/27L) prioritairement décollages, pistes sud atterrissages.",
+    "Restrictions PEB nuit 22:30-06:15 LT.",
+    "Opérations LVP CAT III disponibles sur les 4 pistes."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

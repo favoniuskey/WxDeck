@@ -1,0 +1,53 @@
+{
+  "icao": "LFMP",
+  "name": "Perpignan Rivesaltes",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "13",
+      "heading": 128,
+      "lengthFt": 3560,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "31",
+      "heading": 308,
+      "lengthFt": 3560,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "15",
+      "heading": 148,
+      "lengthFt": 8202,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "33",
+      "heading": 328,
+      "lengthFt": 8202,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "icao": "LFRU",
+  "name": "Morlaix Ploujean",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "04",
+      "heading": 41,
+      "lengthFt": 5305,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "22",
+      "heading": 221,
+      "lengthFt": 5305,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "09",
+      "heading": 90,
+      "lengthFt": 1548,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "27",
+      "heading": 270,
+      "lengthFt": 1548,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "15",
+      "heading": 153,
+      "lengthFt": 2772,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "33",
+      "heading": 333,
+      "lengthFt": 2772,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

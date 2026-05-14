@@ -1,0 +1,66 @@
+{
+  "icao": "LFMK",
+  "name": "Carcassonne Salvaza",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "09",
+      "heading": 97,
+      "lengthFt": 6726,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "27",
+      "heading": 277,
+      "lengthFt": 6726,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 09",
+      "arrRunways": [
+        "09"
+      ],
+      "depRunways": [
+        "09"
+      ],
+      "windFrom": 7,
+      "windTo": 187,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 27",
+      "arrRunways": [
+        "27"
+      ],
+      "depRunways": [
+        "27"
+      ],
+      "windFrom": 187,
+      "windTo": 7,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

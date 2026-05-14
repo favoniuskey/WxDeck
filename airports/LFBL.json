@@ -1,0 +1,66 @@
+{
+  "icao": "LFBL",
+  "name": "Limoges Bellegarde",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "03",
+      "heading": 34,
+      "lengthFt": 8202,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "21",
+      "heading": 214,
+      "lengthFt": 8202,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 03",
+      "arrRunways": [
+        "03"
+      ],
+      "depRunways": [
+        "03"
+      ],
+      "windFrom": 304,
+      "windTo": 124,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 21",
+      "arrRunways": [
+        "21"
+      ],
+      "depRunways": [
+        "21"
+      ],
+      "windFrom": 124,
+      "windTo": 304,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

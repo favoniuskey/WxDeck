@@ -1,0 +1,66 @@
+{
+  "icao": "LFAC",
+  "name": "Calais Marck",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "06",
+      "heading": 61,
+      "lengthFt": 5036,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "24",
+      "heading": 241,
+      "lengthFt": 5036,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 06",
+      "arrRunways": [
+        "06"
+      ],
+      "depRunways": [
+        "06"
+      ],
+      "windFrom": 331,
+      "windTo": 151,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 24",
+      "arrRunways": [
+        "24"
+      ],
+      "depRunways": [
+        "24"
+      ],
+      "windFrom": 151,
+      "windTo": 331,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

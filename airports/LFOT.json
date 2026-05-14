@@ -1,0 +1,66 @@
+{
+  "icao": "LFOT",
+  "name": "Tours Val de Loire",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "02",
+      "heading": 15,
+      "lengthFt": 7887,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "20",
+      "heading": 195,
+      "lengthFt": 7887,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [
+    {
+      "name": "QFU 02",
+      "arrRunways": [
+        "02"
+      ],
+      "depRunways": [
+        "02"
+      ],
+      "windFrom": 285,
+      "windTo": 105,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "QFU 20",
+      "arrRunways": [
+        "20"
+      ],
+      "depRunways": [
+        "20"
+      ],
+      "windFrom": 105,
+      "windTo": 285,
+      "priority": 1,
+      "conditions": []
+    }
+  ],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}

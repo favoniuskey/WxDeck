@@ -1,0 +1,139 @@
+{
+  "icao": "LFPO",
+  "name": "Paris Orly",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "06",
+      "heading": 65,
+      "lengthFt": 7874,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "24",
+      "heading": 245,
+      "lengthFt": 7874,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "07",
+      "heading": 65,
+      "lengthFt": 11975,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "25",
+      "heading": 245,
+      "lengthFt": 11975,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "08",
+      "heading": 80,
+      "lengthFt": 10892,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "26",
+      "heading": 260,
+      "lengthFt": 10892,
+      "surface": "asphalt",
+      "ils": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face ouest standard",
+      "arrRunways": [
+        "26"
+      ],
+      "depRunways": [
+        "24"
+      ],
+      "windFrom": 170,
+      "windTo": 350,
+      "priority": 1,
+      "conditions": [],
+      "notes": "ARR 26, DEP 24. Piste 25 utilisable pour ARR en pointe."
+    },
+    {
+      "name": "Face ouest - variante 25 ARR",
+      "arrRunways": [
+        "25"
+      ],
+      "depRunways": [
+        "24"
+      ],
+      "windFrom": 170,
+      "windTo": 350,
+      "priority": 2,
+      "conditions": []
+    },
+    {
+      "name": "Face est standard",
+      "arrRunways": [
+        "06"
+      ],
+      "depRunways": [
+        "08"
+      ],
+      "windFrom": 350,
+      "windTo": 170,
+      "priority": 1,
+      "conditions": []
+    },
+    {
+      "name": "Face est - variante 07 ARR",
+      "arrRunways": [
+        "07"
+      ],
+      "depRunways": [
+        "08"
+      ],
+      "windFrom": 350,
+      "windTo": 170,
+      "priority": 2,
+      "conditions": []
+    },
+    {
+      "name": "Couvre-feu nuit",
+      "arrRunways": [],
+      "depRunways": [],
+      "windFrom": 0,
+      "windTo": 360,
+      "priority": 3,
+      "timeWindow": "23:30-06:00",
+      "timeWindowTz": "Europe/Paris",
+      "conditions": [
+        "curfew"
+      ],
+      "notes": "Couvre-feu Orly : interdiction décollages 23:30-06:00 LT et atterrissages 23:15-06:00 LT."
+    }
+  ],
+  "specialNotes": [
+    "Couvre-feu nocturne strict (arrêté du 4 avril 1968 modifié).",
+    "Plafond annuel 250 000 créneaux.",
+    "Opérations LVP CAT III disponibles."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

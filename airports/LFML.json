@@ -1,0 +1,85 @@
+{
+  "icao": "LFML",
+  "name": "Marseille Provence",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "13L",
+      "heading": 132,
+      "lengthFt": 11483,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "31R",
+      "heading": 312,
+      "lengthFt": 11483,
+      "surface": "asphalt",
+      "ils": true
+    },
+    {
+      "id": "13R",
+      "heading": 132,
+      "lengthFt": 7874,
+      "surface": "asphalt",
+      "ils": false
+    },
+    {
+      "id": "31L",
+      "heading": 312,
+      "lengthFt": 7874,
+      "surface": "asphalt",
+      "ils": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Face nord-ouest (mistral) - doublet",
+      "arrRunways": [
+        "31R"
+      ],
+      "depRunways": [
+        "31L"
+      ],
+      "windFrom": 220,
+      "windTo": 40,
+      "priority": 1,
+      "conditions": [],
+      "notes": "Préférentielle par mistral. 31R CAT III pour ARR, 31L pour DEP."
+    },
+    {
+      "name": "Face sud-est - doublet",
+      "arrRunways": [
+        "13L"
+      ],
+      "depRunways": [
+        "13R"
+      ],
+      "windFrom": 40,
+      "windTo": 220,
+      "priority": 2,
+      "conditions": [],
+      "notes": "Face SE par vent du sud-est."
+    }
+  ],
+  "specialNotes": [
+    "Pistes parallèles séparées ~270 m - approches dépendantes.",
+    "Préférence opérationnelle 31 (mistral résiduel et bruit)."
+  ],
+  "sources": [
+    "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
+  ]
+}

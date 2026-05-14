@@ -1,0 +1,53 @@
+{
+  "icao": "LFSD",
+  "name": "Dijon Longvic",
+  "region": "metro",
+  "transitionAltitude": 5000,
+  "transitionLevels": [
+    {
+      "minQnh": 1013,
+      "maxQnh": 1050,
+      "flightLevel": 60
+    },
+    {
+      "minQnh": 977,
+      "maxQnh": 1012,
+      "flightLevel": 70
+    }
+  ],
+  "runways": [
+    {
+      "id": "01",
+      "heading": 15,
+      "lengthFt": 5905,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "19",
+      "heading": 195,
+      "lengthFt": 5905,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "17",
+      "heading": 175,
+      "lengthFt": 7874,
+      "surface": "other",
+      "ils": false
+    },
+    {
+      "id": "35",
+      "heading": 355,
+      "lengthFt": 7874,
+      "surface": "other",
+      "ils": false
+    }
+  ],
+  "configurations": [],
+  "specialNotes": [],
+  "sources": [
+    "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
+  ]
+}
