@@ -78,6 +78,9 @@ export interface AirportProfile {
   icao: string;
   name: string;
   region: 'metro' | 'dom-tom';
+  elevationFt?: number;
+  latitude?: number;
+  longitude?: number;
   transitionAltitude: number;
   transitionLevels: Array<{ minQnh: number; maxQnh: number; flightLevel: number }>;
   runways: RunwayDef[] | string[];

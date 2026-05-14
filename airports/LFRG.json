@@ -62,5 +62,8 @@
   "specialNotes": [],
   "sources": [
     "OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise"
-  ]
+  ],
+  "elevationFt": 479,
+  "latitude": 49.365237,
+  "longitude": 0.154481
 }

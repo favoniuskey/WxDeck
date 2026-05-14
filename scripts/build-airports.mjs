@@ -493,13 +493,22 @@ function readOurAirports() {
   const rIdx = Object.fromEntries(rHead.map((h, i) => [h, i]));
 
   const airportById = new Map();
+  const airportByIcao = new Map();
   for (const a of airports) {
     if (!a[aIdx.ident]) continue;
-    airportById.set(a[aIdx.id], {
+    const elev = parseInt(a[aIdx.elevation_ft], 10);
+    const lat = parseFloat(a[aIdx.latitude_deg]);
+    const lon = parseFloat(a[aIdx.longitude_deg]);
+    const info = {
       ident: a[aIdx.ident],
       name: a[aIdx.name],
-      country: a[aIdx.iso_country]
-    });
+      country: a[aIdx.iso_country],
+      elevationFt: Number.isFinite(elev) ? elev : null,
+      latitude: Number.isFinite(lat) ? lat : null,
+      longitude: Number.isFinite(lon) ? lon : null
+    };
+    airportById.set(a[aIdx.id], info);
+    airportByIcao.set(info.ident.toUpperCase(), info);
   }
   const runwaysByIcao = new Map();
   for (const r of runways) {
@@ -535,7 +544,7 @@ function readOurAirports() {
       });
     }
   }
-  return runwaysByIcao;
+  return { runwaysByIcao, airportByIcao };
 }
 
 function monopisteConfig(runways) {
@@ -568,23 +577,24 @@ function monopisteConfig(runways) {
   ];
 }
 
-function buildProfile(icao, runwaysByIcao) {
+function buildProfile(icao, runwaysByIcao, airportByIcao) {
   const overlay = RESEARCH[icao];
   const name = NAMES[icao] || icao;
   const region = regionMap.get(icao) || 'metro';
   const ta = overlay?.ta ?? taMap.get(icao) ?? 5000;
   const tl = overlay?.tl ?? (taMap.has(icao) || icao === 'LFLB' ? tlForTa(ta) : stdTl.metro);
+  const oa = airportByIcao.get(icao);
 
   let runways = overlay?.runways;
   if (!runways) {
-    const oa = runwaysByIcao.get(icao) || [];
-    runways = oa.filter((r) => r.heading != null);
+    const list = runwaysByIcao.get(icao) || [];
+    runways = list.filter((r) => r.heading != null);
   }
   let configurations = overlay?.configurations;
   if (!configurations) {
     configurations = monopisteConfig(runways);
   }
-  return {
+  const profile = {
     icao,
     name,
     region,
@@ -597,12 +607,16 @@ function buildProfile(icao, runwaysByIcao) {
       ? ['AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)']
       : ['OurAirports (CC0) - configuration générique cap±90°, validation utilisateur requise']
   };
+  if (oa?.elevationFt != null) profile.elevationFt = oa.elevationFt;
+  if (oa?.latitude != null) profile.latitude = oa.latitude;
+  if (oa?.longitude != null) profile.longitude = oa.longitude;
+  return profile;
 }
 
 function main() {
   console.log('Loading OurAirports data...');
-  const runwaysByIcao = readOurAirports();
-  console.log(`OurAirports: ${runwaysByIcao.size} airports indexed`);
+  const { runwaysByIcao, airportByIcao } = readOurAirports();
+  console.log(`OurAirports: ${airportByIcao.size} airports indexed`);
 
   for (const f of readdirSync(OUT)) {
     if (f.endsWith('.json')) unlinkSync(join(OUT, f));
@@ -611,18 +625,20 @@ function main() {
   let written = 0;
   let withConfigs = 0;
   let monopiste = 0;
+  let withElev = 0;
   for (const icao of FULL_LIST) {
-    const profile = buildProfile(icao, runwaysByIcao);
+    const profile = buildProfile(icao, runwaysByIcao, airportByIcao);
     if (profile.runways.length === 0) {
       console.warn(`  ! ${icao}: no runway data, skipping`);
       continue;
     }
     if (RESEARCH[icao]) withConfigs++;
     else monopiste++;
+    if (profile.elevationFt != null) withElev++;
     writeFileSync(join(OUT, `${icao}.json`), JSON.stringify(profile, null, 2) + '\n', 'utf-8');
     written++;
   }
-  console.log(`Wrote ${written} airports (${withConfigs} with researched configs, ${monopiste} generic monopiste)`);
+  console.log(`Wrote ${written} airports (${withConfigs} researched, ${monopiste} generic, ${withElev} with elevation)`);
 }
 
 main();

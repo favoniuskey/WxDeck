@@ -65,5 +65,8 @@
   ],
   "sources": [
     "AIP France / OpenAIP / IVAO MANEX (validation utilisateur requise)"
-  ]
+  ],
+  "elevationFt": 36,
+  "latitude": 16.265443,
+  "longitude": -61.532754
 }

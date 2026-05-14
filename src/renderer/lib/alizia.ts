@@ -54,24 +54,14 @@ export function extractWind(metar: MetarReport | null): AliziaWindReading {
   };
 }
 
+const FT_PER_HPA = 27.3;
+
 export function extractPressure(metar: MetarReport | null, airport: AirportProfile | null): AliziaPressureReading {
   if (!metar) return { qnh: null, qfe: null };
   const qnh = Math.round(metar.altimeter.hPa);
-  const elevFt = approxElevationFt(airport);
-  const qfe = elevFt != null ? Math.round(qnh - (elevFt / 27.3)) : null;
+  const elevFt = airport?.elevationFt;
+  const qfe = elevFt != null ? Math.round(qnh - elevFt / FT_PER_HPA) : null;
   return { qnh, qfe };
-}
-
-function approxElevationFt(airport: AirportProfile | null): number | null {
-  if (!airport) return null;
-  const map: Record<string, number> = {
-    LFPG: 392, LFPO: 291, LFPB: 218, LFBO: 499, LFBD: 162,
-    LFML: 74, LFMN: 12, LFLL: 821, LFLB: 779, LFRS: 90, LFSB: 885, LFST: 505,
-    LFKJ: 18, LFKB: 25, LFQQ: 157, LFOB: 359, LFMT: 17, LFLC: 1090, LFBZ: 245,
-    TFFF: 16, TFFR: 36, TFFJ: 49, FMEE: 66, FMCZ: 50, SOCA: 26,
-    NWWW: 52
-  };
-  return map[airport.icao] ?? null;
 }
 
 export function activeQfuFromConfig(arrRunway: string | undefined, airport: AirportProfile | null): string | null {
