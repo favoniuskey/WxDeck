@@ -37,7 +37,10 @@ const api: WxDeckApi = {
     const listener = (_: unknown, mode: AliziaMode, open: boolean) => cb(mode, open);
     ipcRenderer.on(IPC.ALIZIA_STATE_CHANGED, listener);
     return () => ipcRenderer.off(IPC.ALIZIA_STATE_CHANGED, listener);
-  }
+  },
+  auroraDiagnose: () => ipcRenderer.invoke(IPC.AURORA_DIAGNOSE),
+  auroraAutoFix: (scope: 'active' | 'all') => ipcRenderer.invoke(IPC.AURORA_AUTO_FIX, scope),
+  auroraPickInstallPath: () => ipcRenderer.invoke(IPC.AURORA_PICK_PATH)
 };
 
 contextBridge.exposeInMainWorld('wxdeck', api);

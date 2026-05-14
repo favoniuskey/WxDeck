@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain, shell, nativeImage } from 'electron';
+import { app, BrowserWindow, dialog, ipcMain, shell, nativeImage } from 'electron';
 import { release } from 'node:os';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -8,6 +8,7 @@ import type { AliziaMode } from '@shared/types';
 import { getSettings, patchSettings } from './settings';
 import { initUpdater, checkForUpdates, installUpdateNow } from './updater';
 import { startOrchestrator, getLiveState, applyAuroraEndpoint, refreshTimers } from './orchestrator';
+import { diagnose, autoFixThirdParty, detectAuroraPath } from './aurora-detector';
 
 if (release().startsWith('6.1')) app.disableHardwareAcceleration();
 if (process.platform === 'win32') app.setAppUserModelId('io.favoniuskey.wxdeck');
@@ -228,6 +229,30 @@ function registerIpc(): void {
     const w = aliziaWindows[mode];
     if (!w || w.isDestroyed()) return false;
     return w.isAlwaysOnTop();
+  });
+
+  ipcMain.handle(IPC.AURORA_DIAGNOSE, async () => {
+    const s = getSettings();
+    return diagnose(s.auroraHost, s.auroraPort, s.auroraInstallPath ?? null);
+  });
+  ipcMain.handle(IPC.AURORA_AUTO_FIX, async (_e, scope: 'active' | 'all') => {
+    const s = getSettings();
+    const path = detectAuroraPath(s.auroraInstallPath ?? null);
+    if (!path) return { attempted: 0, succeeded: [], failed: [], blockedByRunning: false };
+    return autoFixThirdParty(path, scope);
+  });
+  ipcMain.handle(IPC.AURORA_PICK_PATH, async (event) => {
+    const win = BrowserWindow.fromWebContents(event.sender);
+    const res = await dialog.showOpenDialog(win ?? undefined as any, {
+      title: 'Localiser le dossier d\'installation Aurora',
+      properties: ['openDirectory']
+    });
+    if (res.canceled || res.filePaths.length === 0) return null;
+    const chosen = res.filePaths[0];
+    const detected = detectAuroraPath(chosen);
+    if (!detected) return null;
+    patchSettings({ auroraInstallPath: detected });
+    return detected;
   });
 }
 

@@ -100,12 +100,36 @@ export interface UserSettings {
   vid?: string;
   auroraHost: string;
   auroraPort: number;
+  auroraInstallPath?: string;
   pollIntervalMs: number;
   weatherIntervalMs: number;
   acceptedDisclaimer: boolean;
   aliziaTutorialSeen: boolean;
   auroraGuideDismissed: boolean;
   theme: 'mica' | 'acrylic' | 'flat';
+}
+
+export interface AuroraDiagnostic {
+  internetOk: boolean;
+  auroraInstalled: boolean;
+  auroraPath: string | null;
+  auroraRunning: boolean;
+  activeProfile: string | null;
+  activeProfileName: string | null;
+  activeProfileElevationFt: number | null;
+  thirdPartyEnabledActive: boolean | null;
+  profilesNeedingFix: string[];
+  totalProfiles: number;
+  tcpReachable: boolean;
+  host: string;
+  port: number;
+}
+
+export interface AuroraFixResult {
+  attempted: number;
+  succeeded: string[];
+  failed: string[];
+  blockedByRunning: boolean;
 }
 
 export interface ExpectedConfig {
@@ -159,6 +183,9 @@ export interface WxDeckApi {
   aliziaSetAlwaysOnTop: (mode: AliziaMode, onTop: boolean) => Promise<boolean>;
   aliziaGetAlwaysOnTop: (mode: AliziaMode) => Promise<boolean>;
   onAliziaStateChange: (cb: (mode: AliziaMode, open: boolean) => void) => () => void;
+  auroraDiagnose: () => Promise<AuroraDiagnostic>;
+  auroraAutoFix: (scope: 'active' | 'all') => Promise<AuroraFixResult>;
+  auroraPickInstallPath: () => Promise<string | null>;
 }
 
 export type UpdateEvent =

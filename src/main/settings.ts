@@ -10,7 +10,7 @@ const defaults: UserSettings = {
   aliziaTutorialSeen: false,
   auroraGuideDismissed: false,
   theme: 'mica'
-};
+} as UserSettings;
 
 const store = new Store<UserSettings>({
   name: 'wxdeck-settings',

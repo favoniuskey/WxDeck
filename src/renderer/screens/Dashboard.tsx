@@ -98,14 +98,7 @@ export function Dashboard() {
       <RawTextStrip metar={state?.metar ?? null} taf={state?.taf ?? null} />
 
       {showAuroraGuide && (
-        <AuroraSetupGuide
-          port={settings?.auroraPort ?? 1130}
-          isConnected={auroraOnline}
-          onClose={() => setShowAuroraGuide(false)}
-          onRetry={() => {
-            update({ auroraGuideDismissed: false });
-          }}
-        />
+        <AuroraSetupGuide onClose={() => setShowAuroraGuide(false)} />
       )}
     </div>
   );
